@@ -25,9 +25,12 @@ state.capital <- c("Abakaliki", "Abeokuta", "Abuja", "AdoEkiti", "Akure", "Asaba
 
 country_name <- countrycode::codelist$country.name.en
 
+supp_category <- c("boarding & lodging", "lodging and cash", "lodging only", "cash only")
+
+
 # Define the UI for the application
 ui <- navbarPage(
-        "NAFDAC Allowance Calculator app",
+        "NAFDAC Allowances Calculator app",
         theme = shinytheme("cerulean"),
         tabPanel(
                 "Air Travel Allowance",
@@ -99,6 +102,59 @@ ui <- navbarPage(
                                 mainPanel(
                                         h4("Estacode Allowance Breakdown:"),
                                         tableOutput("estacode_allowance_table")
+                                        
+                                )
+                        )
+                )
+        ),
+        tabPanel(
+                "Estacode Supplementation Allowance",
+                fluidPage(
+                        titlePanel("Calculate Estacode Supplementation Allowance"),
+                        sidebarLayout(
+                                sidebarPanel(
+                                        textInput("name_estacode_supp", "Name of Staff"),
+                                        selectInput("rank_estacode_supp", "Rank", choices = c("", rank_name), selected = ""),
+                                        selectInput("travel_from_estacode_supp", "Traveling from", country_name, selected = "Nigeria"),
+                                        selectInput("travel_to_estacode_supp", "Traveling to", choices = c("", country_name), selected = ""),
+                                        selectInput("estacode_supplement_category", "Estacode Supplement Category", supp_category),
+                                        numericInput("num_days_estacode_supp", "Number of Days:", value = "", min = 1),
+                                        numericInput("cash_received", "Cash Received($)", value = ""),
+                                        numericInput("exchange_rate_estacode_supp", "Exchange rate(₦/$)", value = ""),
+                                        actionButton("calculate__estacode_supp", "Calculate Allowance"),
+                                        actionButton("reset__estacode_supp", "Reset"),
+                                        hr(),
+                                        downloadButton("downloadWord__estacode_supp", "Download Word"),
+                                        downloadButton("downloadCSV__estacode_supp", "Download CSV"),
+                                ),
+                                mainPanel(
+                                        h4("Estacode Supplementation Allowance Breakdown:"),
+                                        tableOutput("estacode_supp_allowance_table")
+                                        
+                                )
+                        )
+                )
+        ),
+        tabPanel(
+                "Warm Clothing Allowance",
+                fluidPage(
+                        titlePanel("Calculate Warm Clothing Allowance"),
+                        sidebarLayout(
+                                sidebarPanel(
+                                        textInput("name_warm_clothing", "Name of Staff"),
+                                        selectInput("rank_warm_clothing", "Rank", choices = c("", rank_name), selected = ""),
+                                        selectInput("travel_from_warm_clothing", "Traveling from", country_name, selected = "Nigeria"),
+                                        selectInput("travel_to_warm_clothing", "Traveling to", choices = c("", country_name), selected = ""),
+                                        numericInput("exchange_rate_warm_clothing", "Exchange rate(₦/$)", value = ""),
+                                        actionButton("calculate_warm_clothing", "Calculate Allowance"),
+                                        actionButton("reset_warm_clothing", "Reset"),
+                                        hr(),
+                                        downloadButton("downloadWord_warm_clothing", "Download Word"),
+                                        downloadButton("downloadCSV_warm_clothing", "Download CSV"),
+                                ),
+                                mainPanel(
+                                        h4("Warm Clothing Allowance Breakdown:"),
+                                        tableOutput("warm_clothing_allowance_table")
                                         
                                 )
                         )

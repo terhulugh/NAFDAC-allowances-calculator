@@ -468,12 +468,178 @@ calculate_travel_allowance_estacode <- function(name_estacode, rank, num_days, e
 }
 
 
+# Define the function to calculate traveling allowance for air travel
+calculate_travel_allowance_estacode_supp <- function(name, rank, num_days, exchange_rate, estacode_supplement_category, cash_received, travel_from, travel_to) {
+        
+        # Check if travel_from is the same as travel_to
+        if (travel_from == travel_to) {
+                stop("Travel from and travel to locations cannot be the same")
+        }
+        
+        # Define daily estacode allowance based on rank
+        rank_estacode <- c("CONRAISS 1" = 206, "CONRAISS 2" = 206, "CONRAISS 3" = 206, 
+                           "CONRAISS 4" = 206, "CONRAISS 5" = 206, 
+                           "CONRAISS 6" = 381, "CONRAISS 7(Officer II)" = 381, "CONRAISS 8(Officer I)" = 381, "CONRAISS 9(Senior)" = 381, 
+                           "CONRAISS 11(Principal)" = 381, "CONRAISS 12(Asst Chief)" = 381, 
+                           "CONRAISS 13(Chief)" = 381, "CONRAISS 14(AD)" = 381, 
+                           "CONRAISS 15(DD)" = 381, "Director" = 381, "Chief Executive/Board Members"=600)
+        
+        # Check if rank is valid
+        if (!rank %in% names(rank_estacode)) {
+                stop("This function is not set up for the selected rank")
+        }
+        
+        estacode_per_day <- rank_estacode[rank]
+        
+        # Calculate the total travel allowance in dollars
+        total_estacode_allowance <- estacode_per_day * num_days
+        
+        if(estacode_supplement_category == "boarding & lodging") {
+                estacode_due = total_estacode_allowance * 0.1
+        } else if (estacode_supplement_category == "lodging and cash") {
+                estacode_due = (total_estacode_allowance * 0.3)
+        } else if (estacode_supplement_category == "lodging only") {
+                estacode_due = total_estacode_allowance * 0.4 
+        } else if (estacode_supplement_category == "cash only" && num_days <= 28) {
+                estacode_due = total_estacode_allowance
+        } else if (estacode_supplement_category == "cash only" && num_days > 28) {
+                estacode_due = (estacode_per_day * 28) + (estacode_per_day * 0.3 * (num_days-28))
+        } else {
+                stop("Estacode supplemtation category selected is not valid")
+        } 
+        
+        
+        if(estacode_supplement_category == "boarding & lodging") {
+                total_supplementary_allowance = estacode_due
+        } else if (estacode_supplement_category == "lodging and cash") {
+                total_supplementary_allowance = estacode_due - cash_received
+        } else if (estacode_supplement_category == "lodging only") {
+                total_supplementary_allowance = estacode_due 
+        } else if (estacode_supplement_category == "cash only" && num_days <= 28) {
+                total_supplementary_allowance = estacode_due - cash_received
+        } else if (estacode_supplement_category == "cash only" && num_days > 28) {
+                total_supplementary_allowance = estacode_due - cash_received
+        } else {
+                stop("Estacode supplemtation category selected is not valid")
+        } 
+        
+        # Check if total supplementary allowance is valif
+        if (total_supplementary_allowance <= 0) {
+                stop("Estacode supplemtation allowance is not valid for payment")
+        }
+        
+        total_travel_allowance <- total_supplementary_allowance  * exchange_rate
+        
+        # Create a dataframe with all variables and the total value
+        result <- data.frame(
+                Variable = c(
+                        "Name of Staff",
+                        "Rank", 
+                        "Travel From",
+                        "Travel To",
+                        "Estacode Supplement Category",
+                        "Number of Days",
+                        "Estacode per day($)",
+                        "Total estacode allowance($)",
+                        "Estacode Due($)",
+                        "Cash Recieved($)",
+                        "Supplementary Allowance due($)",
+                        "Exchange rate(₦/$)",
+                        "Total Allowance(₦)"
+                ),
+                Value = c(
+                        name,
+                        rank,
+                        travel_from,
+                        travel_to,
+                        estacode_supplement_category,
+                        num_days,
+                        estacode_per_day,
+                        total_estacode_allowance,
+                        estacode_due,
+                        cash_received,
+                        total_supplementary_allowance,
+                        exchange_rate,
+                        total_travel_allowance
+                )
+        )
+        
+        # Format the numerical values with commas and two decimal places
+        result$Value <- sapply(seq_along(result$Value), function(i) {
+                x <- result$Value[i]
+                num_value <- suppressWarnings(as.numeric(x))
+                if (!is.na(num_value)) {
+                        if (result$Variable[i] == "Number of Days") {
+                                return(formatC(num_value, format = "f", big.mark = ",", digits = 0))
+                        } else {
+                                return(formatC(num_value, format = "f", big.mark = ",", digits = 2))
+                        }
+                } else {
+                        return(as.character(x))
+                }
+        })
+        
+        return(result)
+}
+
+calculate_warm_clothing__allowance <- function(name, rank, exchange_rate, warm_clothing_rate, travel_from, travel_to) {
+        
+        # Check if travel_from is the same as travel_to
+        if (travel_from == travel_to) {
+                stop("Travel from and travel to locations cannot be the same")
+        }
+        
+        # Define daily estacode allowance based on rank
+        warm_clothing_rate <- 720
+        
+        # Calculate the warm clothing allowance
+        warm_clothing_allowance <- warm_clothing_rate * exchange_rate
+        
+        
+        # Create a dataframe with all variables and the Warm Clothing Allowance
+        result <- data.frame(
+                Variable = c(
+                        "Name of Staff",
+                        "Rank", 
+                        "Travel From",
+                        "Travel To",
+                        "Warm Clothing Rate($)", 
+                        "Exchange rate(₦/$)",
+                        "Warm Clothing Allowance(₦)"
+                ),
+                Value = c(
+                        name,
+                        rank,
+                        travel_from,
+                        travel_to,
+                        warm_clothing_rate,
+                        exchange_rate,
+                        warm_clothing_allowance
+                )
+        )
+        
+        # Format the numerical values with commas and two decimal places
+        result$Value <- sapply(seq_along(result$Value), function(i) {
+                x <- result$Value[i]
+                num_value <- suppressWarnings(as.numeric(x))
+                if (!is.na(num_value)) {
+                        return(formatC(num_value, format = "f", big.mark = ",", digits = 2))
+                } else {
+                        return(as.character(x))
+                }
+        })
+        
+        return(result)
+}
+
 
 # Define the server logic required to calculate the allowance and display the results
 server <- function(input, output, session) {
         result_air <- reactiveVal(NULL)
         result_road <- reactiveVal(NULL)
         result_estacode <- reactiveVal(NULL)
+        result_estacode_supp <- reactiveVal(NULL)
+        result_warm_clothing <- reactiveVal(NULL)
         
         observeEvent(input$calculate_air, {
                 name <- input$name_air
@@ -503,12 +669,36 @@ server <- function(input, output, session) {
                 name <- input$name_estacode
                 rank <- input$rank_estacode
                 num_days <- input$num_days_estacode
-                exchange_rate <- input$exchange_rate
+                exchange_rate <- input$exchange_rate_estacode
                 travel_from <- input$travel_from_estacode
                 travel_to <- input$travel_to_estacode
                 
                 result_estacode(calculate_travel_allowance_estacode(name, rank, num_days, exchange_rate, travel_from, travel_to))
         })
+        
+        observeEvent(input$calculate__estacode_supp, {
+                name <- input$name_estacode_supp
+                rank <- input$rank_estacode_supp
+                num_days <- input$num_days_estacode_supp
+                estacode_supplement_category <- input$estacode_supplement_category
+                cash_received <- input$cash_received
+                exchange_rate <- input$exchange_rate_estacode_supp
+                travel_from <- input$travel_from_estacode_supp
+                travel_to <- input$travel_to_estacode_supp
+                
+                result_estacode_supp(calculate_travel_allowance_estacode_supp(name, rank, num_days, exchange_rate, estacode_supplement_category, cash_received, travel_from, travel_to))
+        })
+        
+        observeEvent(input$calculate_warm_clothing, {
+                name <- input$name_warm_clothing
+                rank <- input$rank_warm_clothing
+                exchange_rate <- input$exchange_rate_warm_clothing
+                travel_from <- input$travel_from_warm_clothing
+                travel_to <- input$travel_to_warm_clothing
+                
+                result_warm_clothing(calculate_warm_clothing__allowance(name, rank, exchange_rate, warm_clothing_rate, travel_from, travel_to))
+        })
+        
         
         output$air_allowance_table <- renderTable({
                 result_air()
@@ -520,6 +710,14 @@ server <- function(input, output, session) {
         
         output$estacode_allowance_table <- renderTable({
                 result_estacode()
+        })
+        
+        output$estacode_supp_allowance_table <- renderTable({
+                result_estacode_supp()
+        })
+        
+        output$warm_clothing_allowance_table <- renderTable({
+                result_warm_clothing()
         })
         
         output$downloadWord_air <- downloadHandler(
@@ -594,6 +792,55 @@ server <- function(input, output, session) {
                 contentType = "text/csv"
         )
         
+        output$downloadWord__estacode_supp <- downloadHandler(
+                filename = function() {
+                        paste("Estacode_Supp_Allowance_", Sys.Date(), ".docx", sep = "")
+                },
+                content = function(file) {
+                        df <- result_estacode_supp()
+                        doc <- read_docx() %>%
+                                body_add_table(df, style = "table_template")
+                        print(doc, target = file)
+                },
+                contentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        )
+        
+        output$downloadCSV__estacode_supp <- downloadHandler(
+                filename = function() {
+                        paste("Estacode_Supp_Allowance_", Sys.Date(), ".csv", sep = "")
+                },
+                content = function(file) {
+                        df <- result_estacode_supp()
+                        write.csv(df, file, row.names = FALSE)
+                },
+                contentType = "text/csv"
+        )
+        
+        output$downloadWord_warm_clothing <- downloadHandler(
+                filename = function() {
+                        paste("Warm_Clothing_Allowance_", Sys.Date(), ".docx", sep = "")
+                },
+                content = function(file) {
+                        df <- result_warm_clothing()
+                        doc <- read_docx() %>%
+                                body_add_table(df, style = "table_template")
+                        print(doc, target = file)
+                },
+                contentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        )
+        
+        output$downloadCSV_warm_clothing <- downloadHandler(
+                filename = function() {
+                        paste("Estacode_Supp_Allowance_", Sys.Date(), ".csv", sep = "")
+                },
+                content = function(file) {
+                        df <- result_warm_clothing()
+                        write.csv(df, file, row.names = FALSE)
+                },
+                contentType = "text/csv"
+        )
+        
+        
         
         observeEvent(input$reset_air, {
                 updateTextInput(session, "name_air", value = "")
@@ -623,7 +870,28 @@ server <- function(input, output, session) {
                 updateTextInput(session, "travel_to_estacode", value = "")
                 updateTextInput(session, "rank_estacode", value = "")
                 updateNumericInput(session, "num_days_estacode", value = "")
-                updateNumericInput(session, "exchange_rate", value = "")
-                output$estacode_allowance_table <- renderTable(NULL)
+                updateNumericInput(session, "exchange_rate_estacode", value = "")
+                output$road_allowance_table <- renderTable(NULL)
+        })
+        
+        observeEvent(input$reset__estacode_supp, {
+                updateTextInput(session, "name_estacode_supp", value = "")
+                updateTextInput(session, "travel_from_estacode_supp", value = "")
+                updateTextInput(session, "travel_to_estacode_supp", value = "")
+                updateTextInput(session, "rank_estacode_supp", value = "")
+                updateTextInput(session, "estacode_supplement_category", value = "")
+                updateNumericInput(session, "num_days_estacode_supp", value = "")
+                updateNumericInput(session, "exchange_rate_estacode_supp", value = "")
+                updateNumericInput(session, "cash_received", value = "")
+                output$road_allowance_table <- renderTable(NULL)
+        })
+        
+        observeEvent(input$reset_warm_clothing, {
+                updateTextInput(session, "name_warm_clothing", value = "")
+                updateTextInput(session, "travel_from_warm_clothing", value = "")
+                updateTextInput(session, "travel_to_warm_clothing", value = "")
+                updateTextInput(session, "rank_warm_clothing", value = "")
+                updateNumericInput(session, "exchange_rate_warm_clothing", value = "")
+                output$road_allowance_table <- renderTable(NULL)
         })
 }
