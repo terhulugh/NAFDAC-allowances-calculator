@@ -1,5 +1,5 @@
 # Define the function to calculate traveling allowance for air travel
-calculate_travel_allowance_air <- function(name_air, rank, num_days, air_ticket_value, airport_taxi_value, travel_from, travel_to) {
+calculate_travel_allowance_air <- function(name_air, rank, num_days, air_ticket_value, travel_from, travel_to) {
         
         # Check if travel_from is the same as travel_to
         if (travel_from == travel_to) {
@@ -88,11 +88,11 @@ calculate_travel_allowance_air <- function(name_air, rank, num_days, air_ticket_
                         "Travel From",
                         "Travel To",
                         "Number of Days", 
-                        "DTA Days", 
-                        "Local Run Days", 
-                        "Air Ticket Value", 
-                        "Airport Taxi Value", 
-                        "Total Travel Allowance"
+                        "DTA Days(₦)", 
+                        "Local Run Days(₦)", 
+                        "Air Ticket Value(₦)", 
+                        "Airport Taxi Value(₦)", 
+                        "Total Travel Allowance(₦)"
                 ),
                 Value = c(
                         name_air,
@@ -340,8 +340,11 @@ calculate_travel_allowance_road <- function(name_road, rank, num_days, rate_per_
         # Calculate total allowance for the given number of days
         total_allowance_days <- dta_days + local_run_days
         
+        # Calculate road transport allowance to and fro
+        road_transport <- rate_per_km * distance_km * 2
+        
         # Calculate the total travel allowance
-        total_travel_allowance <- total_allowance_days + (rate_per_km * distance_km * 2)
+        total_travel_allowance <- total_allowance_days + road_transport
         
         # Create a dataframe with all variables and the total value
         result <- data.frame(
@@ -351,11 +354,12 @@ calculate_travel_allowance_road <- function(name_road, rank, num_days, rate_per_
                         "Travel From",
                         "Travel To",
                         "Number of Days", 
-                        "DTA Days", 
-                        "Local Run Days", 
-                        "Rate Per Km", 
-                        "Distance in Km (one way)", 
-                        "Total Travel Allowance"
+                        "DTA Days(₦)", 
+                        "Local Run Days(₦)", 
+                        "Rate Per Km(₦)", 
+                        "Distance in Km (one way)",
+                        "Road Transport(₦)",
+                        "Total Travel Allowance(₦)"
                 ),
                 Value = c(
                         name_road,
@@ -367,6 +371,7 @@ calculate_travel_allowance_road <- function(name_road, rank, num_days, rate_per_
                         local_run_days,
                         rate_per_km,
                         distance_km,
+                        road_transport,
                         total_travel_allowance
                 )
         )
@@ -407,8 +412,8 @@ calculate_travel_allowance_estacode <- function(name_estacode, rank, num_days, e
                            "CONRAISS 4" = 206, "CONRAISS 5" = 206, 
                            "CONRAISS 6" = 381, "CONRAISS 7(Officer II)" = 381, "CONRAISS 8(Officer I)" = 381, "CONRAISS 9(Senior)" = 381, 
                            "CONRAISS 11(Principal)" = 381, "CONRAISS 12(Asst Chief)" = 381, 
-                           "CONRAISS 13(Chief)" = 381, "CONRAISS 14(AD)" = 381, 
-                           "CONRAISS 15(DD)" = 381, "Director" = 381, "Chief Executive/Board Members"=600)
+                           "CONRAISS 13(Chief)" = 381, "CONRAISS 14(AD)" = 425, 
+                           "CONRAISS 15(DD)" = 425, "Director" = 425, "Chief Executive/Board Members"=600)
         
         # Check if rank is valid
         if (!rank %in% names(rank_estacode)) {
@@ -430,7 +435,7 @@ calculate_travel_allowance_estacode <- function(name_estacode, rank, num_days, e
                         "Number of Days", 
                         "Estacode per day($)", 
                         "Exchange rate(₦/$)", 
-                        "Total Travel Allowance"
+                        "Total Travel Allowance(₦)"
                 ),
                 Value = c(
                         name_estacode,
@@ -481,8 +486,8 @@ calculate_travel_allowance_estacode_supp <- function(name, rank, num_days, excha
                            "CONRAISS 4" = 206, "CONRAISS 5" = 206, 
                            "CONRAISS 6" = 381, "CONRAISS 7(Officer II)" = 381, "CONRAISS 8(Officer I)" = 381, "CONRAISS 9(Senior)" = 381, 
                            "CONRAISS 11(Principal)" = 381, "CONRAISS 12(Asst Chief)" = 381, 
-                           "CONRAISS 13(Chief)" = 381, "CONRAISS 14(AD)" = 381, 
-                           "CONRAISS 15(DD)" = 381, "Director" = 381, "Chief Executive/Board Members"=600)
+                           "CONRAISS 13(Chief)" = 381, "CONRAISS 14(AD)" = 425, 
+                           "CONRAISS 15(DD)" = 425, "Director" = 425, "Chief Executive/Board Members"=600)
         
         # Check if rank is valid
         if (!rank %in% names(rank_estacode)) {
@@ -646,11 +651,10 @@ server <- function(input, output, session) {
                 rank <- input$rank_air
                 num_days <- input$num_days_air
                 air_ticket_value <- input$air_ticket_value
-                airport_taxi_value <- input$airport_taxi_value
                 travel_from <- input$travel_from_air
                 travel_to <- input$travel_to_air
                 
-                result_air(calculate_travel_allowance_air(name, rank, num_days, air_ticket_value, airport_taxi_value, travel_from, travel_to))
+                result_air(calculate_travel_allowance_air(name, rank, num_days, air_ticket_value, travel_from, travel_to))
         })
         
         observeEvent(input$calculate_road, {
@@ -850,7 +854,9 @@ server <- function(input, output, session) {
                 updateNumericInput(session, "num_days_air", value = "")
                 updateNumericInput(session, "air_ticket_value", value = "")
                 updateNumericInput(session, "airport_taxi_value", value = "")
-                output$air_allowance_table <- renderTable(NULL)
+                
+                # Reset the reactive value to NULL
+                result_air(NULL)
         })
         
         observeEvent(input$reset_road, {
@@ -861,37 +867,45 @@ server <- function(input, output, session) {
                 updateNumericInput(session, "num_days_road", value = "")
                 updateNumericInput(session, "rate_per_km", value = "")
                 updateNumericInput(session, "distance_km", value = "")
-                output$road_allowance_table <- renderTable(NULL)
+
+                # Reset the reactive value to NULL
+                result_road(NULL)
         })
         
         observeEvent(input$reset_estacode, {
                 updateTextInput(session, "name_estacode", value = "")
-                updateTextInput(session, "travel_from_estacode", value = "")
+                updateTextInput(session, "travel_from_estacode", value = "Nigeria")
                 updateTextInput(session, "travel_to_estacode", value = "")
                 updateTextInput(session, "rank_estacode", value = "")
                 updateNumericInput(session, "num_days_estacode", value = "")
                 updateNumericInput(session, "exchange_rate_estacode", value = "")
-                output$road_allowance_table <- renderTable(NULL)
+
+                # Reset the reactive value to NULL
+                result_estacode(NULL)
         })
         
         observeEvent(input$reset__estacode_supp, {
                 updateTextInput(session, "name_estacode_supp", value = "")
-                updateTextInput(session, "travel_from_estacode_supp", value = "")
+                updateTextInput(session, "travel_from_estacode_supp", value = "Nigeria")
                 updateTextInput(session, "travel_to_estacode_supp", value = "")
                 updateTextInput(session, "rank_estacode_supp", value = "")
                 updateTextInput(session, "estacode_supplement_category", value = "")
                 updateNumericInput(session, "num_days_estacode_supp", value = "")
                 updateNumericInput(session, "exchange_rate_estacode_supp", value = "")
                 updateNumericInput(session, "cash_received", value = "")
-                output$road_allowance_table <- renderTable(NULL)
+
+                # Reset the reactive value to NULL
+                result_estacode_supp(NULL)
         })
         
         observeEvent(input$reset_warm_clothing, {
                 updateTextInput(session, "name_warm_clothing", value = "")
-                updateTextInput(session, "travel_from_warm_clothing", value = "")
+                updateTextInput(session, "travel_from_warm_clothing", value = "Nigeria")
                 updateTextInput(session, "travel_to_warm_clothing", value = "")
                 updateTextInput(session, "rank_warm_clothing", value = "")
                 updateNumericInput(session, "exchange_rate_warm_clothing", value = "")
-                output$road_allowance_table <- renderTable(NULL)
+
+                # Reset the reactive value to NULL
+                result_warm_clothing(NULL)
         })
 }
