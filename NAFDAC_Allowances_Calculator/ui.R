@@ -9,6 +9,7 @@ library(tibble)
 suppressWarnings(library(scales))
 suppressWarnings(library(writexl))
 suppressWarnings(library(countrycode))
+library(lubridate)
 
 rank_name <- c("Chief Executive/Board Members", "Director", "CONRAISS 15(DD)","CONRAISS 14(AD)", "CONRAISS 13(Chief)",
                "CONRAISS 12(Asst Chief)", "CONRAISS 11(Principal)", "CONRAISS 9(Senior)",
@@ -20,7 +21,7 @@ airport_cities <- c("Abuja", "Lagos", "PortHarcourt", "Kano", "Akure", "Asaba", 
                     "Owerri", "Sokoto", "Uyo", "Warri", "Yola")
 
 state.capital <- c("Abakaliki", "Abeokuta", "Abuja", "AdoEkiti", "Akure", "Asaba", "Awka", "Bauchi", "BeninCity",
-                   "BirninKebbi", "Calabar", "Damaturu", "Dutse", "Enugu", "Gombe", "Gusau", "Ibadan", "Ikeja", 
+                   "BirninKebbi", "Calabar", "Damaturu", "Dutse", "Enugu", "Gombe", "Gusau", "Ibadan", "Lagos", 
                    "Ilorin", "Jalingo", "Jos", "Kaduna", "Kano", "Katsina", "Lafia", "Lokoja", "Maiduguri", "Makurdi",
                    "Minna", "Osogbo", "Owerri", "PortHarcourt", "Sokoto", "Umuahia", "Uyo", "Yenagoa", "Yola")
 
@@ -57,7 +58,7 @@ ui <- fluidPage(
         
         sidebarLayout(
                 sidebarPanel(
-                        div(class = "nav-dropdown", "Allowance Types", onclick = "shinyjs.toggle('navlistPanel')"),
+                        div(class = "nav-dropdown", "Click here to select other Allowance Types", onclick = "shinyjs.toggle('navlistPanel')"),
                         div(id = "navlistPanel", class = "nav-tabs",
                             navlistPanel(
                                     tabPanel("Air Travel Allowance", value = "air_travel"),
@@ -81,7 +82,8 @@ ui <- fluidPage(
                                                         selectInput("rank_air", "Rank", choices = c("", rank_name), selected = ""),
                                                         selectInput("travel_from_air", "Traveling from", choices = c("", airport_cities), selected = "" ),
                                                         selectInput("travel_to_air", "Traveling to", choices = c("", airport_cities), selected = ""),
-                                                        numericInput("num_days_air", "Number of Days:", value = "", min = 1),
+                                                        dateInput("start_date_air", "Program Start Date"),
+                                                        dateInput("end_date_air", "Program End Date"),
                                                         numericInput("air_ticket_value", "Air Ticket Value:", value = ""),
                                                         actionButton("calculate_air", "Calculate Allowance"),
                                                         actionButton("reset_air", "Reset"),
@@ -106,7 +108,8 @@ ui <- fluidPage(
                                                         selectInput("rank_road", "Rank", choices = c("", rank_name), selected = ""),
                                                         selectInput("travel_from_road", "Traveling from", choices = c("", state.capital), selected = ""),
                                                         selectInput("travel_to_road", "Traveling to", choices = c("", state.capital), selected = ""),
-                                                        numericInput("num_days_road", "Number of Days:", value = "", min = 1),
+                                                        dateInput("start_date_road", "Program Start Date"),
+                                                        dateInput("end_date_road", "Program End Date"),
                                                         actionButton("calculate_road", "Calculate Allowance"),
                                                         actionButton("reset_road", "Reset"),
                                                         hr(),
@@ -130,8 +133,9 @@ ui <- fluidPage(
                                                         selectInput("rank_estacode", "Rank", choices = c("", rank_name), selected = ""),
                                                         selectInput("travel_from_estacode", "Traveling from", country_name, selected = "Nigeria"),
                                                         selectInput("travel_to_estacode", "Traveling to", choices = c("", country_name), selected = ""),
-                                                        numericInput("num_days_estacode", "Number of Days:", value = "", min = 1),
-                                                        numericInput("exchange_rate", "Exchange rate(₦/$)", value = ""),
+                                                        dateInput("start_date_estacode", "Program Start Date"),
+                                                        dateInput("end_date_estacode", "Program End Date"),
+                                                        numericInput("exchange_rate_estacode", "Exchange rate(₦/$)", value = ""),
                                                         actionButton("calculate_estacode", "Calculate Allowance"),
                                                         actionButton("reset_estacode", "Reset"),
                                                         hr(),
@@ -156,7 +160,8 @@ ui <- fluidPage(
                                                         selectInput("travel_from_estacode_supp", "Traveling from", country_name, selected = "Nigeria"),
                                                         selectInput("travel_to_estacode_supp", "Traveling to", choices = c("", country_name), selected = ""),
                                                         selectInput("estacode_supplement_category", "Estacode Supplement Category", supp_category),
-                                                        numericInput("num_days_estacode_supp", "Number of Days:", value = "", min = 1),
+                                                        dateInput("start_date_estacode_supp", "Program Start Date"),
+                                                        dateInput("end_date_estacode_supp", "Program End Date"),
                                                         numericInput("cash_received", "Cash Received($)", value = ""),
                                                         numericInput("exchange_rate_estacode_supp", "Exchange rate(₦/$)", value = ""),
                                                         actionButton("calculate__estacode_supp", "Calculate Allowance"),

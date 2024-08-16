@@ -1,0 +1,12 @@
+name: NAFDAC_Allowances_Calculator
+title: NAFDAC_Allowances_Calculator
+username: terhulugh01
+account: terhulugh01
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12419910
+bundleId: 9056617
+url: https://terhulugh01.shinyapps.io/NAFDAC_Allowances_Calculator/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
