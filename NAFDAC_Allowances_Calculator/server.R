@@ -400,7 +400,7 @@ calculate_travel_allowance_road <- function(name_road, rank, num_days, rate_per_
 }
 
 # Define the function to calculate estacode allowance
-calculate_travel_allowance_estacode <- function(name_estacode, rank, num_days, exchange_rate, travel_from, travel_to) {
+calculate_travel_allowance_estacode <- function(name, rank, num_days, exchange_rate, travel_from, travel_to) {
         
         # Check if travel_from is the same as travel_to
         if (travel_from == travel_to) {
@@ -438,7 +438,7 @@ calculate_travel_allowance_estacode <- function(name_estacode, rank, num_days, e
                         "Total Travel Allowance(₦)"
                 ),
                 Value = c(
-                        name_estacode,
+                        name,
                         rank,
                         travel_from,
                         travel_to,

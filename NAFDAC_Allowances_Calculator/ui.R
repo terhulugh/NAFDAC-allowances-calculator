@@ -131,7 +131,7 @@ ui <- fluidPage(
                                                         selectInput("travel_from_estacode", "Traveling from", country_name, selected = "Nigeria"),
                                                         selectInput("travel_to_estacode", "Traveling to", choices = c("", country_name), selected = ""),
                                                         numericInput("num_days_estacode", "Number of Days:", value = "", min = 1),
-                                                        numericInput("exchange_rate", "Exchange rate(₦/$)", value = ""),
+                                                        numericInput("exchange_rate_estacode", "Exchange rate(₦/$)", value = ""),
                                                         actionButton("calculate_estacode", "Calculate Allowance"),
                                                         actionButton("reset_estacode", "Reset"),
                                                         hr(),
