@@ -425,8 +425,10 @@ calculate_travel_allowance_road <- function(name_road, rank, start_date, end_dat
 }
 
 # Define the function to calculate estacode allowance
+
 calculate_travel_allowance_estacode <- function(name, rank, start_date, end_date, exchange_rate, travel_from, travel_to) {
-        
+
+
         # Check if travel_from is the same as travel_to
         if (travel_from == travel_to) {
                 stop("Travel from and travel to locations cannot be the same")
