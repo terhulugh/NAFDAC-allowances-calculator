@@ -174,7 +174,7 @@ rank_estacode <- c("CONRAISS 1" = 206, "CONRAISS 2" = 206, "CONRAISS 3" = 206,
                    "CONRAISS 13(Chief)" = 381, "CONRAISS 14(AD)" = 425, 
                    "CONRAISS 15(DD)" = 425, "Director" = 425, "Chief Executive/Board Members"=600)
 
-# Define daily estacode allowance based on rank
+# Define warm clothing allowance rate
 warm_clothing_rate <- 720
 
 
@@ -200,7 +200,7 @@ calculate_travel_allowance_air <- function(name_air, rank, start_date, end_date,
         
         interval_days <- interval(start_date, end_date) %/% days(1)
         
-        num_days <- interval_days + 2
+        num_days <- interval_days + 1
         
         dta_days <- dta_per_day * num_days
         
@@ -336,7 +336,7 @@ calculate_travel_allowance_road <- function(name_road, rank, start_date, end_dat
         
         interval_days <- interval(start_date, end_date) %/% days(1)
         
-        num_days <- interval_days + 2
+        num_days <- interval_days + 1
         
         # Check if rank is valid
         if (!rank %in% names(rank_dta)) {
@@ -374,8 +374,8 @@ calculate_travel_allowance_road <- function(name_road, rank, start_date, end_dat
                         "Rank",
                         "Travel From",
                         "Travel To",
-                        "Event Start Days",
-                        "Event End Date",
+                        "Program Start Date",
+                        "Program End Date",
                         "Travel Days", 
                         "DTA Days(₦)", 
                         "Local Run Days(₦)", 
@@ -425,19 +425,10 @@ calculate_travel_allowance_road <- function(name_road, rank, start_date, end_dat
 }
 
 # Define the function to calculate estacode allowance
-<<<<<<< HEAD
 
 calculate_travel_allowance_estacode <- function(name, rank, start_date, end_date, exchange_rate, travel_from, travel_to) {
 
 
-=======
-<<<<<<< HEAD
-calculate_travel_allowance_estacode <- function(name, rank, start_date, end_date, exchange_rate, travel_from, travel_to) {
-=======
-calculate_travel_allowance_estacode <- function(name, rank, num_days, exchange_rate, travel_from, travel_to) {
->>>>>>> 501031ee47da53af9b7a6cd778bf62da0c304819
-        
->>>>>>> 85d3d2e6ab868a901acc2e99d45c64592a6cc20c
         # Check if travel_from is the same as travel_to
         if (travel_from == travel_to) {
                 stop("Travel from and travel to locations cannot be the same")
@@ -457,7 +448,7 @@ calculate_travel_allowance_estacode <- function(name, rank, num_days, exchange_r
         
         interval_days <- interval(start_date, end_date) %/% days(1)
         
-        num_days <- interval_days + 3
+        num_days <- interval_days + 2
         
         # Calculate the total travel allowance
         total_travel_allowance <- estacode_per_day * num_days * exchange_rate
@@ -473,8 +464,8 @@ calculate_travel_allowance_estacode <- function(name, rank, num_days, exchange_r
                         "Rank", 
                         "Travel From",
                         "Travel To",
-                        "Event Start Date",
-                        "Event End Date",
+                        "Program Start Date",
+                        "Program End Date",
                         "Travel Days", 
                         "Estacode per day($)", 
                         "Exchange rate(₦/$)", 
@@ -540,7 +531,7 @@ calculate_travel_allowance_estacode_supp <- function(name, rank, start_date, end
         
         interval_days <- interval(start_date, end_date) %/% days(1)
         
-        num_days <- interval_days + 3
+        num_days <- interval_days + 2
         
         # Calculate the total travel allowance in dollars
         total_estacode_allowance <- estacode_per_day * num_days
@@ -592,8 +583,8 @@ calculate_travel_allowance_estacode_supp <- function(name, rank, start_date, end
                         "Rank", 
                         "Travel From",
                         "Travel To",
-                        "Event Start Date",
-                        "Event End Date",
+                        "Program Start Date",
+                        "Program End Date",
                         "Estacode Supplement Category",
                         "Travel Days",
                         "Estacode per day($)",
@@ -637,6 +628,11 @@ calculate_travel_allowance_estacode_supp <- function(name, rank, start_date, end
                         return(as.character(x))
                 }
         })
+        
+        # Transpose the dataframe to have a horizontal structure
+        result <- t(result)
+        colnames(result) <- result[1, ]
+        result <- result[-1, , drop = FALSE]
         
         return(result)
 }
@@ -685,6 +681,11 @@ calculate_warm_clothing__allowance <- function(name, rank, exchange_rate, warm_c
                         return(as.character(x))
                 }
         })
+        
+        # Transpose the dataframe to have a horizontal structure
+        result <- t(result)
+        colnames(result) <- result[1, ]
+        result <- result[-1, , drop = FALSE]
         
         return(result)
 }

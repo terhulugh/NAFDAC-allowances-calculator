@@ -82,7 +82,7 @@ ui <- fluidPage(
                                                         selectInput("rank_air", "Rank", choices = c("", rank_name), selected = ""),
                                                         selectInput("travel_from_air", "Traveling from", choices = c("", airport_cities), selected = "" ),
                                                         selectInput("travel_to_air", "Traveling to", choices = c("", airport_cities), selected = ""),
-                                                        dateInput("start_date_air", "Program Start Date"),
+                                                        dateInput("start_date_air", "Arrival Date"),
                                                         dateInput("end_date_air", "Program End Date"),
                                                         numericInput("air_ticket_value", "Air Ticket Value:", value = ""),
                                                         actionButton("calculate_air", "Calculate Allowance"),
@@ -108,7 +108,7 @@ ui <- fluidPage(
                                                         selectInput("rank_road", "Rank", choices = c("", rank_name), selected = ""),
                                                         selectInput("travel_from_road", "Traveling from", choices = c("", state.capital), selected = ""),
                                                         selectInput("travel_to_road", "Traveling to", choices = c("", state.capital), selected = ""),
-                                                        dateInput("start_date_road", "Program Start Date"),
+                                                        dateInput("start_date_road", "Arrival Date"),
                                                         dateInput("end_date_road", "Program End Date"),
                                                         actionButton("calculate_road", "Calculate Allowance"),
                                                         actionButton("reset_road", "Reset"),
@@ -133,17 +133,8 @@ ui <- fluidPage(
                                                         selectInput("rank_estacode", "Rank", choices = c("", rank_name), selected = ""),
                                                         selectInput("travel_from_estacode", "Traveling from", country_name, selected = "Nigeria"),
                                                         selectInput("travel_to_estacode", "Traveling to", choices = c("", country_name), selected = ""),
-<<<<<<< HEAD
-                                                        dateInput("start_date_estacode", "Program Start Date"),
+                                                        dateInput("start_date_estacode", "Arrival Date"),
                                                         dateInput("end_date_estacode", "Program End Date"),
-=======
-<<<<<<< HEAD
-                                                        dateInput("start_date_estacode", "Program Start Date"),
-                                                        dateInput("end_date_estacode", "Program End Date"),
-=======
-                                                        numericInput("num_days_estacode", "Number of Days:", value = "", min = 1),
->>>>>>> 501031ee47da53af9b7a6cd778bf62da0c304819
->>>>>>> 85d3d2e6ab868a901acc2e99d45c64592a6cc20c
                                                         numericInput("exchange_rate_estacode", "Exchange rate(₦/$)", value = ""),
                                                         actionButton("calculate_estacode", "Calculate Allowance"),
                                                         actionButton("reset_estacode", "Reset"),
@@ -169,7 +160,7 @@ ui <- fluidPage(
                                                         selectInput("travel_from_estacode_supp", "Traveling from", country_name, selected = "Nigeria"),
                                                         selectInput("travel_to_estacode_supp", "Traveling to", choices = c("", country_name), selected = ""),
                                                         selectInput("estacode_supplement_category", "Estacode Supplement Category", supp_category),
-                                                        dateInput("start_date_estacode_supp", "Program Start Date"),
+                                                        dateInput("start_date_estacode_supp", "Arrival Date"),
                                                         dateInput("end_date_estacode_supp", "Program End Date"),
                                                         numericInput("cash_received", "Cash Received($)", value = ""),
                                                         numericInput("exchange_rate_estacode_supp", "Exchange rate(₦/$)", value = ""),
