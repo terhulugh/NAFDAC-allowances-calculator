@@ -5,7 +5,7 @@ account: terhulugh01
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12419910
-bundleId: 10091763
+bundleId: 10144910
 url: https://terhulugh01.shinyapps.io/NAFDAC_Allowances_Calculator/
 version: 1
 asMultiple: FALSE

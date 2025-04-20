@@ -1,35 +1,56 @@
-# Define daily travel allowance (DTA) based on rank
-rank_dta <- c("CONRAISS 1" = 10000, "CONRAISS 2" = 10000, "CONRAISS 3" = 10000, 
-              "CONRAISS 4" = 15000, "CONRAISS 5" = 15000, 
-              "CONRAISS 6" = 17500, "CONRAISS 7(Officer II)" = 17500, "CONRAISS 8(Officer I)" = 17500, "CONRAISS 9(Senior)" = 17500, 
-              "CONRAISS 11(Principal)" = 20000, "CONRAISS 12(Asst Chief)" = 20000, 
-              "CONRAISS 13(Chief)" = 25000, "CONRAISS 14(AD)" = 25000, 
-              "CONRAISS 15(DD)" = 37500, "Director" = 37500, "Chief Executive/Board Members"=70000)
+library(dplyr)
+library(readr)
 
+# Read the CSV with proper numeric conversion
+dta_data <- read_csv("nafdac_allowances.csv", 
+                     col_types = cols(
+                             rank = col_character(),
+                             type = col_character(),
+                             rate = col_character()  # First read as character
+                     )) %>%
+        mutate(
+                # Clean and convert rate to numeric
+                rate = as.numeric(gsub("[ ,]", "", rate)))  # Remove commas and spaces
+                
+# Load taxi allowance data
+taxi_data <- read_csv("taxi_allowances.csv",
+                      col_types = cols(
+                              rank = col_character(),
+                              type = col_character(),
+                              route_type = col_character(),
+                              rate = col_double()
+                      ))                
 
-# Define airport taxi values based on travel routes and ranks
-taxi_values <- list(
-        Abuja_Lagos_PH = c("CONRAISS 1" = 40000, "CONRAISS 2" = 40000, "CONRAISS 3" = 40000, "CONRAISS 4" = 40000, "CONRAISS 5" = 40000, "CONRAISS 6" = 40000, "CONRAISS 7(Officer II)" = 40000, "CONRAISS 8(Officer I)" = 40000, "CONRAISS 9(Senior)" = 40000, "CONRAISS 11(Principal)" = 40000, "CONRAISS 12(Asst Chief)" = 52000, "CONRAISS 13(Chief)" = 52000, "CONRAISS 14(AD)" = 52000, "CONRAISS 15(DD)" = 60000, "Director" = 30000, "Chief Executive/Board Members"=0),
-        Abuja_Asaba = c("CONRAISS 1" = 33000, "CONRAISS 2" = 33000, "CONRAISS 3" = 33000, "CONRAISS 4" = 33000, "CONRAISS 5" = 33000, "CONRAISS 6" = 33000, "CONRAISS 7(Officer II)" = 33000, "CONRAISS 8(Officer I)" = 33000, "CONRAISS 9(Senior)" = 33000, "CONRAISS 11(Principal)" = 33000, "CONRAISS 12(Asst Chief)" = 42000, "CONRAISS 13(Chief)" = 42000, "CONRAISS 14(AD)" = 42000, "CONRAISS 15(DD)" = 50000, "Director" = 30000, "Chief Executive/Board Members"=0),
-        Abuja_Jos = c("CONRAISS 1" = 34000, "CONRAISS 2" = 34000, "CONRAISS 3" = 34000, "CONRAISS 4" = 34000, "CONRAISS 5" = 34000, "CONRAISS 6" = 34000, "CONRAISS 7(Officer II)" = 34000, "CONRAISS 8(Officer I)" = 34000, "CONRAISS 9(Senior)" = 34000, "CONRAISS 11(Principal)" = 34000, "CONRAISS 12(Asst Chief)" = 43000, "CONRAISS 13(Chief)" = 43000, "CONRAISS 14(AD)" = 43000, "CONRAISS 15(DD)" = 50000, "Director" = 30000, "Chief Executive/Board Members"=0),
-        Abuja_Calabar = c("CONRAISS 1" = 38000, "CONRAISS 2" = 38000, "CONRAISS 3" = 38000, "CONRAISS 4" = 38000, "CONRAISS 5" = 38000, "CONRAISS 6" = 38000, "CONRAISS 7(Officer II)" = 38000, "CONRAISS 8(Officer I)" = 38000, "CONRAISS 9(Senior)" = 38000, "CONRAISS 11(Principal)" = 38000, "CONRAISS 12(Asst Chief)" = 48000, "CONRAISS 13(Chief)" = 48000, "CONRAISS 14(AD)" = 48000, "CONRAISS 15(DD)" = 50000, "Director" = 30000, "Chief Executive/Board Members"=0),
-        Asaba_Warri = c("CONRAISS 1" = 26000, "CONRAISS 2" = 26000, "CONRAISS 3" = 26000, "CONRAISS 4" = 26000, "CONRAISS 5" = 26000, "CONRAISS 6" = 26000, "CONRAISS 7(Officer II)" = 26000, "CONRAISS 8(Officer I)" = 26000, "CONRAISS 9(Senior)" = 26000, "CONRAISS 11(Principal)" = 26000, "CONRAISS 12(Asst Chief)" = 32000, "CONRAISS 13(Chief)" = 32000, "CONRAISS 14(AD)" = 32000, "CONRAISS 15(DD)" = 40000, "Director" = 20000, "Chief Executive/Board Members"=0),
-        Asaba_Jos = c("CONRAISS 1" = 27000, "CONRAISS 2" = 27000, "CONRAISS 3" = 27000, "CONRAISS 4" = 27000, "CONRAISS 5" = 27000, "CONRAISS 6" = 27000, "CONRAISS 7(Officer II)" = 27000, "CONRAISS 8(Officer I)" = 27000, "CONRAISS 9(Senior)" = 27000, "CONRAISS 11(Principal)" = 27000, "CONRAISS 12(Asst Chief)" = 33000, "CONRAISS 13(Chief)" = 33000, "CONRAISS 14(AD)" = 33000, "CONRAISS 15(DD)" = 40000, "Director" = 20000, "Chief Executive/Board Members"=0),
-        Asaba_Calabar = c("CONRAISS 1" = 31000, "CONRAISS 2" = 31000, "CONRAISS 3" = 31000, "CONRAISS 4" = 31000, "CONRAISS 5" = 31000, "CONRAISS 6" = 31000, "CONRAISS 7(Officer II)" = 31000, "CONRAISS 8(Officer I)" = 31000, "CONRAISS 9(Senior)" = 31000, "CONRAISS 11(Principal)" = 31000, "CONRAISS 12(Asst Chief)" = 35000, "CONRAISS 13(Chief)" = 35000, "CONRAISS 14(AD)" = 35000, "CONRAISS 15(DD)" = 40000, "Director" = 20000, "Chief Executive/Board Members"=0),
-        Jos_Calabar = c("CONRAISS 1" = 32000, "CONRAISS 2" = 32000, "CONRAISS 3" = 32000, "CONRAISS 4" = 32000, "CONRAISS 5" = 32000, "CONRAISS 6" = 32000, "CONRAISS 7(Officer II)" = 32000, "CONRAISS 8(Officer I)" = 32000, "CONRAISS 9(Senior)" = 32000, "CONRAISS 11(Principal)" = 32000, "CONRAISS 12(Asst Chief)" = 36000, "CONRAISS 13(Chief)" = 36000, "CONRAISS 14(AD)" = 36000, "CONRAISS 15(DD)" = 40000, "Director" = 20000, "Chief Executive/Board Members"=0),
-        Jos_Sokoto = c("CONRAISS 1" = 28000, "CONRAISS 2" = 28000, "CONRAISS 3" = 28000, "CONRAISS 4" = 28000, "CONRAISS 5" = 28000, "CONRAISS 6" = 28000, "CONRAISS 7(Officer II)" = 28000, "CONRAISS 8(Officer I)" = 28000, "CONRAISS 9(Senior)" = 28000, "CONRAISS 11(Principal)" = 28000, "CONRAISS 12(Asst Chief)" = 34000, "CONRAISS 13(Chief)" = 34000, "CONRAISS 14(AD)" = 34000, "CONRAISS 15(DD)" = 40000, "Director" = 20000, "Chief Executive/Board Members"=0),
-        Calabar_Uyo = c("CONRAISS 1" = 36000, "CONRAISS 2" = 36000, "CONRAISS 3" = 36000, "CONRAISS 4" = 36000, "CONRAISS 5" = 36000, "CONRAISS 6" = 36000, "CONRAISS 7(Officer II)" = 36000, "CONRAISS 8(Officer I)" = 36000, "CONRAISS 9(Senior)" = 36000, "CONRAISS 11(Principal)" = 36000, "CONRAISS 12(Asst Chief)" = 38000, "CONRAISS 13(Chief)" = 38000, "CONRAISS 14(AD)" = 38000, "CONRAISS 15(DD)" = 40000, "Director" = 20000, "Chief Executive/Board Members"=0)
-)
+# Create rate tables by type
+rank_dta <- dta_data %>%
+        filter(type == "dta") %>%
+        select(rank, rate) %>%
+        deframe()
 
+rank_km <- dta_data %>%
+        filter(type == "km_rate") %>%
+        select(rank, rate) %>%
+        deframe()
 
-# Define rate per kilometer based on rank
-rank_km <- c("CONRAISS 1" = 35,"CONRAISS 2" = 35,"CONRAISS 3" = 35,
-             "CONRAISS 4" = 35,"CONRAISS 5" = 35,"CONRAISS 6" = 55,
-             "CONRAISS 7(Officer II)" = 55,"CONRAISS 8(Officer I)" = 55,
-             "CONRAISS 9(Senior)" = 55,"CONRAISS 11(Principal)" = 55,
-             "CONRAISS 12(Asst Chief)" = 55,"CONRAISS 13(Chief)" = 55,
-             "CONRAISS 14(AD)" = 55, "CONRAISS 15(DD)" = 75,
-             "Director" = 75, "Chief Executive/Board Members"=150)
+rank_hotel_rate <- dta_data %>%
+        filter(type == "hotel_rate") %>%
+        select(rank, rate) %>%
+        deframe()
+
+rank_estacode <- dta_data %>%
+        filter(type == "estacode_rate") %>%
+        select(rank, rate) %>%
+        deframe()
+
+warm_clothing_rate <- dta_data %>%
+        filter(type == "warmclothing") %>%
+        pull(rate) %>%
+        first()
+
+# Create taxi values structure
+taxi_values <- taxi_data %>%
+        split(.$route_type) %>%
+        map(~ select(., rank, rate) %>% deframe())
 
 # Define distances between state capitals
 state_distance <- list(
@@ -166,75 +187,56 @@ state_distance <- list(
         Umuahia_Yenagoa=281,Umuahia_Yola=917,Uyo_Yenagoa=224,Uyo_Yola=1073,Yenagoa_Yola=1124
 )
 
-# Define daily estacode allowance based on rank
-rank_estacode <- c("CONRAISS 1" = 206, "CONRAISS 2" = 206, "CONRAISS 3" = 206, 
-                   "CONRAISS 4" = 206, "CONRAISS 5" = 206, 
-                   "CONRAISS 6" = 381, "CONRAISS 7(Officer II)" = 381, "CONRAISS 8(Officer I)" = 381, "CONRAISS 9(Senior)" = 381, 
-                   "CONRAISS 11(Principal)" = 381, "CONRAISS 12(Asst Chief)" = 381, 
-                   "CONRAISS 13(Chief)" = 381, "CONRAISS 14(AD)" = 425, 
-                   "CONRAISS 15(DD)" = 425, "Director" = 425, "Chief Executive/Board Members"=600)
-
-# Define warm clothing allowance rate
-warm_clothing_rate <- 720
-
 
 # Define the function to calculate traveling allowance for air travel
-calculate_travel_allowance_air <- function(name_air, rank, start_date, end_date, air_ticket_value, travel_from, travel_to) {
+calculate_travel_allowance_air <- function(name_air, rank, start_date, end_date, 
+                                           air_ticket_value, travel_from, travel_to) {
         
-        # Check if travel_from is the same as travel_to
-        if (travel_from == travel_to) {
-                stop("Travel from and travel to locations cannot be the same")
-        }
-        
-        # Check if start_date and end_date is valid
-        if (start_date > end_date) {
-                stop("End Date is not valid")
-        }
-
-        # Check if rank is valid
-        if (!rank %in% names(rank_dta)) {
-                stop("This function is not set up for the selected rank")
-        }
-        
-        dta_per_day <- rank_dta[rank]
-        
-        interval_days <- interval(start_date, end_date) %/% days(1)
-        
-        num_days <- interval_days + 1
-        
-        dta_days <- dta_per_day * num_days
-        
-        local_run_days <- 0.30 * dta_per_day * num_days
-        
-        total_allowance_days <- dta_days + local_run_days
+        # Input validation
+        validate(
+                need(travel_from != travel_to, "Travel from and to locations cannot be the same"),
+                need(start_date <= end_date, "End date must be after start date"),
+                need(rank %in% names(rank_dta), "Invalid rank selected")
+                )
+                
+                # Calculate duration
+                num_days <- as.integer(difftime(end_date, start_date, units = "days")) + 1
+                
+                # Calculate allowance components
+                # Get daily rate (ensure numeric)
+                dta_per_day <- as.numeric(rank_dta[[rank]])
+                if (is.na(dta_per_day)) stop("No DTA rate found for rank: ", rank)
+                dta_days <- dta_per_day * num_days
+                local_run_days <- 0.30 * dta_per_day * num_days
+                total_allowance_days <- dta_days + local_run_days
         
         # Determine the airport taxi value
-        if ((travel_from %in% c("Abuja", "Lagos", "PortHarcourt") && travel_to %in% c("Abuja", "Lagos", "PortHarcourt")) ||
-            (travel_to %in% c("Abuja", "Lagos", "PortHarcourt") && travel_from %in% c("Abuja", "Lagos", "PortHarcourt"))) {
+        if ((travel_from %in% c("Abuja", "Lagos", "Port Harcourt") && travel_to %in% c("Abuja", "Lagos", "Port Harcourt")) ||
+            (travel_to %in% c("Abuja", "Lagos", "Port Harcourt") && travel_from %in% c("Abuja", "Lagos", "Port Harcourt"))) {
                 airport_taxi_value <- taxi_values$Abuja_Lagos_PH[rank]
-        } else if ((travel_from %in% c("Abuja", "Lagos", "PortHarcourt") && travel_to %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri")) ||
-                   (travel_to %in% c("Abuja", "Lagos", "PortHarcourt") && travel_from %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri"))) {
+        } else if ((travel_from %in% c("Abuja", "Lagos", "Port Harcourt") && travel_to %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri")) ||
+                   (travel_to %in% c("Abuja", "Lagos", "Port Harcourt") && travel_from %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri"))) {
                 airport_taxi_value <- taxi_values$Abuja_Asaba[rank]
-        } else if ((travel_from %in% c("Abuja", "Lagos", "PortHarcourt") && travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto")) ||
-                   (travel_to %in% c("Abuja", "Lagos", "PortHarcourt") && travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto"))) {
+        } else if ((travel_from %in% c("Abuja", "Lagos", "Port Harcourt") && travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi")) ||
+                   (travel_to %in% c("Abuja", "Lagos", "Port Harcourt") && travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi"))) {
                 airport_taxi_value <- taxi_values$Abuja_Jos[rank]
-        } else if ((travel_from %in% c("Abuja", "Lagos", "PortHarcourt") && travel_to %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola")) ||
-                   (travel_to %in% c("Abuja", "Lagos", "PortHarcourt") && travel_from %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola"))) {
+        } else if ((travel_from %in% c("Abuja", "Lagos", "Port Harcourt") && travel_to %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola")) ||
+                   (travel_to %in% c("Abuja", "Lagos", "Port Harcourt") && travel_from %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola"))) {
                 airport_taxi_value <- taxi_values$Abuja_Calabar[rank]
         } else if ((travel_from %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_to %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola")) ||
                    (travel_to %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_from %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola"))) {
                 airport_taxi_value <- taxi_values$Asaba_Calabar[rank]
-        } else if ((travel_from %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto")) ||
-                   (travel_to %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto"))) {
+        } else if ((travel_from %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi")) ||
+                   (travel_to %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi"))) {
                 airport_taxi_value <- taxi_values$Asaba_Jos[rank]
         } else if ((travel_from %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_to %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri")) ||
                    (travel_to %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri") && travel_from %in% c("Asaba", "Benin", "Ibadan", "Ilorin", "Maiduguri", "Warri"))) {
                 airport_taxi_value <- taxi_values$Asaba_Warri[rank]
-        } else if ((travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto") && travel_to %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola")) ||
-                   (travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto") && travel_from %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola"))) {
+        } else if ((travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi") && travel_to %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola")) ||
+                   (travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi") && travel_from %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola"))) {
                 airport_taxi_value <- taxi_values$Jos_Calabar[rank]
-        } else if ((travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto") && travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto")) ||
-                   (travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto") && travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto"))) {
+        } else if ((travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi") && travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi")) ||
+                   (travel_to %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi") && travel_from %in% c("Jos", "Gombe", "Kano", "Kaduna", "Minna", "Sokoto", "Birnin Kebbi"))) {
                 airport_taxi_value <- taxi_values$Jos_Sokoto[rank]
         } else if ((travel_from %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola") && travel_to %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola")) ||
                    (travel_to %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola") && travel_from %in% c("Calabar", "Enugu", "Makurdi", "Owerri", "Uyo", "Yola"))) {
@@ -244,43 +246,25 @@ calculate_travel_allowance_air <- function(name_air, rank, start_date, end_date,
                 airport_taxi_value <- taxi_values$Other[rank]
         }
         
-        # Calculate the total travel allowance
-        total_travel_allowance <- total_allowance_days + air_ticket_value + airport_taxi_value
-        
-        start_date <- format(start_date, "%Y-%m-%d")
-        end_date <- format(end_date, "%Y-%m-%d")
-        
-        # Create a dataframe with all variables and the total value
-        result <- data.frame(
-                Variable = c(
-                        "Name of Staff",
-                        "Rank", 
-                        "Travel From",
-                        "Travel To",
-                        "Program Start Date",
-                        "Program End Date",
-                        "Travel Days", 
-                        "DTA Days(₦)", 
-                        "Local Run Days(₦)", 
-                        "Air Ticket Value(₦)", 
-                        "Airport Taxi Value(₦)", 
-                        "Total Travel Allowance(₦)"
-                ),
-                Value = c(
-                        name_air,
-                        rank,
-                        travel_from,
-                        travel_to,
-                        start_date,
-                        end_date,
-                        num_days,
-                        dta_days,
-                        local_run_days,
-                        air_ticket_value,
-                        airport_taxi_value,
-                        total_travel_allowance
+                # Calculate total
+                total_travel_allowance <- total_allowance_days + air_ticket_value + airport_taxi_value
+                
+                # Prepare results
+                result <- data.frame(
+                        Variable = c(
+                                "Name of Staff", "Rank", "Travel From", "Travel To",
+                                "Arrival Date", "Program End Date", "Travel Days",
+                                "DTA Days(₦)", "Local Run Days(₦)", "Air Ticket Value(₦)",
+                                "Airport Taxi Value(₦)", "Total Travel Allowance(₦)"
+                        ),
+                        Value = c(
+                                name_air, rank, travel_from, travel_to,
+                                format(start_date, "%Y-%m-%d"), format(end_date, "%Y-%m-%d"),
+                                num_days, dta_days, local_run_days, air_ticket_value,
+                                airport_taxi_value, total_travel_allowance
+                        ),
+                        stringsAsFactors = FALSE
                 )
-        )
         
         # Format the numerical values with commas and two decimal places
         result$Value <- sapply(seq_along(result$Value), function(i) {
@@ -297,11 +281,7 @@ calculate_travel_allowance_air <- function(name_air, rank, start_date, end_date,
                 }
         })
         
-        # Transpose the dataframe to have a horizontal structure
-        result <- t(result)
-        colnames(result) <- result[1, ]
-        result <- result[-1, , drop = FALSE]
-        
+
         return(result)
 }
 
@@ -343,17 +323,14 @@ calculate_travel_allowance_road <- function(name_road, rank, start_date, end_dat
                 stop("This function is not set up for the selected rank")
         }
         
-        dta_per_day <- rank_dta[rank]
-        
-        # Calculate local run allowance for number of days
-        local_run_days <- 0.30 * dta_per_day * num_days
-        
-        # Calculate DTA for number of days
+        # Calculate allowance components
+        # Get daily rate (ensure numeric)
+        dta_per_day <- as.numeric(rank_dta[[rank]])
+        if (is.na(dta_per_day)) stop("No DTA rate found for rank: ", rank)
         dta_days <- dta_per_day * num_days
-        
-        
-        # Calculate total allowance for the given number of days
+        local_run_days <- 0.30 * dta_per_day * num_days
         total_allowance_days <- dta_days + local_run_days
+        
         
         rate_per_km <- rank_km[rank]
         
@@ -374,7 +351,7 @@ calculate_travel_allowance_road <- function(name_road, rank, start_date, end_dat
                         "Rank",
                         "Travel From",
                         "Travel To",
-                        "Program Start Date",
+                        "Arrival Date",
                         "Program End Date",
                         "Travel Days", 
                         "DTA Days(₦)", 
@@ -416,18 +393,95 @@ calculate_travel_allowance_road <- function(name_road, rank, start_date, end_dat
                 }
         })
         
-        # Transpose the dataframe to have a horizontal structure
-        result <- t(result)
-        colnames(result) <- result[1, ]
-        result <- result[-1, , drop = FALSE]
+
+        return(result)
+}
+
+# Define first 28 days function
+calculate_travel_allowance_first <- function(name_first, rank, rate_per_km, distance_km, hotel_allowance, travel_from, travel_to) {
+        
+        # Check if travel_from is the same as travel_to
+        if (travel_from == travel_to) {
+                stop("Travel from and travel to locations cannot be the same.")
+        }
+        
+        # Validate trip
+        valid_trip <- paste(travel_from, travel_to, sep = "_") %in% names(state_distance) ||
+                paste(travel_to, travel_from, sep = "_") %in% names(state_distance)
+        
+        if (!valid_trip) {
+                stop("Distance between the specified locations is not available.")
+        }
+        
+        # Get one-way distance
+        distance_km <- if (paste(travel_from, travel_to, sep = "_") %in% names(state_distance)) {
+                state_distance[[paste(travel_from, travel_to, sep = "_")]]
+        } else {
+                state_distance[[paste(travel_to, travel_from, sep = "_")]]
+        }
+        
+        # Validate rank
+        if (!rank %in% names(rank_hotel_rate)) {
+                stop("This function is not set up for the selected rank.")
+        }
+        
+        # Get hotel rate per day
+        hotel_rate_per_day <- as.numeric(rank_hotel_rate[[rank]])
+        if (is.na(hotel_rate_per_day)) stop("No Hotel rate found for rank: ", rank)
+        
+        # Get rate per km
+        rate_per_km <- as.numeric(rank_km[[rank]])
+        if (is.na(rate_per_km)) stop("No KM rate found for rank: ", rank)
+        
+        # Calculate allowances
+        hotel_allowance <- hotel_rate_per_day * 28
+        road_transport <- rate_per_km * distance_km
+        total_allowance <- hotel_allowance + road_transport
+        
+        # Prepare result dataframe
+        result <- data.frame(
+                Variable = c(
+                        "Name of Staff",
+                        "Rank",
+                        "Travel From",
+                        "Travel To",
+                        "Hotel Rate per Day (₦)",
+                        "Hotel Allowance for 28 Days (₦)",
+                        "Rate per Km (₦)",
+                        "Distance in Km (One Way)",
+                        "Road Transport (₦)",
+                        "Total Allowance (₦)"
+                ),
+                Value = c(
+                        name_first,
+                        rank,
+                        travel_from,
+                        travel_to,
+                        hotel_rate_per_day,
+                        hotel_allowance,
+                        rate_per_km,
+                        distance_km,
+                        road_transport,
+                        total_allowance
+                ),
+                stringsAsFactors = FALSE
+        )
+        
+        # Format numeric values
+        result$Value <- sapply(result$Value, function(x) {
+                num_value <- suppressWarnings(as.numeric(x))
+                if (!is.na(num_value)) {
+                        formatC(num_value, format = "f", big.mark = ",", digits = 2)
+                } else {
+                        as.character(x)
+                }
+        })
         
         return(result)
 }
 
 # Define the function to calculate estacode allowance
-
 calculate_travel_allowance_estacode <- function(name, rank, start_date, end_date, exchange_rate, travel_from, travel_to) {
-
 
         # Check if travel_from is the same as travel_to
         if (travel_from == travel_to) {
@@ -464,7 +518,7 @@ calculate_travel_allowance_estacode <- function(name, rank, start_date, end_date
                         "Rank", 
                         "Travel From",
                         "Travel To",
-                        "Program Start Date",
+                        "Arrival Date",
                         "Program End Date",
                         "Travel Days", 
                         "Estacode per day($)", 
@@ -500,16 +554,11 @@ calculate_travel_allowance_estacode <- function(name, rank, start_date, end_date
                 }
         })
         
-        # Transpose the dataframe to have a horizontal structure
-        result <- t(result)
-        colnames(result) <- result[1, ]
-        result <- result[-1, , drop = FALSE]
-        
         return(result)
 }
 
 
-# Define the function to calculate traveling allowance for air travel
+# Define the function to calculate estacode supplementary allowance
 calculate_travel_allowance_estacode_supp <- function(name, rank, start_date, end_date, exchange_rate, estacode_supplement_category, cash_received, travel_from, travel_to) {
         
         # Check if travel_from is the same as travel_to
@@ -583,7 +632,7 @@ calculate_travel_allowance_estacode_supp <- function(name, rank, start_date, end
                         "Rank", 
                         "Travel From",
                         "Travel To",
-                        "Program Start Date",
+                        "Arrival Date",
                         "Program End Date",
                         "Estacode Supplement Category",
                         "Travel Days",
@@ -629,14 +678,11 @@ calculate_travel_allowance_estacode_supp <- function(name, rank, start_date, end
                 }
         })
         
-        # Transpose the dataframe to have a horizontal structure
-        result <- t(result)
-        colnames(result) <- result[1, ]
-        result <- result[-1, , drop = FALSE]
-        
+
         return(result)
 }
 
+# Define function to calculate warm clothing allowance
 calculate_warm_clothing__allowance <- function(name, rank, exchange_rate, warm_clothing_rate, travel_from, travel_to) {
         
         # Check if travel_from is the same as travel_to
@@ -695,6 +741,7 @@ calculate_warm_clothing__allowance <- function(name, rank, exchange_rate, warm_c
 server <- function(input, output, session) {
         result_air <- reactiveVal(NULL)
         result_road <- reactiveVal(NULL)
+        result_first <- reactiveVal(NULL)
         result_estacode <- reactiveVal(NULL)
         result_estacode_supp <- reactiveVal(NULL)
         result_warm_clothing <- reactiveVal(NULL)
@@ -724,6 +771,15 @@ server <- function(input, output, session) {
                 result_road(calculate_travel_allowance_road(name, rank, start_date, end_date, rate_per_km, distance_km, travel_from, travel_to))
         })
         
+        observeEvent(input$calculate_first, {
+                name <- input$name_first
+                rank <- input$rank_first
+                travel_from <- input$travel_from_first
+                travel_to <- input$travel_to_first
+                
+                result_first(calculate_travel_allowance_first(name, rank, rate_per_km, distance_km, hotel_allowance, travel_from, travel_to))
+        })
+        
         observeEvent(input$calculate_estacode, {
                 name <- input$name_estacode
                 rank <- input$rank_estacode
@@ -736,7 +792,7 @@ server <- function(input, output, session) {
                 result_estacode(calculate_travel_allowance_estacode(name, rank, start_date, end_date, exchange_rate, travel_from, travel_to))
         })
         
-        observeEvent(input$calculate__estacode_supp, {
+        observeEvent(input$calculate_estacode_supp, {
                 name <- input$name_estacode_supp
                 rank <- input$rank_estacode_supp
                 start_date <- input$start_date_estacode_supp
@@ -761,24 +817,82 @@ server <- function(input, output, session) {
         })
         
         
-        output$air_allowance_table <- renderTable({
-                result_air()
+        output$air_allowance_table <- renderDT({
+                datatable(
+                        result_air(),
+                        options = list(
+                                dom = 't',
+                                pageLength = -1,
+                                scrollX = TRUE
+                        ),
+                        class = 'cell-border stripe', # This adds gridlines
+                        rownames = FALSE
+                )
         })
         
-        output$road_allowance_table <- renderTable({
-                result_road()
+        output$road_allowance_table <- renderDT({
+                datatable(
+                        result_road(),
+                        options = list(
+                                dom = 't',
+                                pageLength = -1,
+                                scrollX = TRUE
+                        ),
+                        class = 'cell-border stripe', # This adds gridlines
+                        rownames = FALSE
+                )
         })
         
-        output$estacode_allowance_table <- renderTable({
-                result_estacode()
+        output$first_allowance_table <- renderDT({
+                datatable(
+                        result_first(),
+                        options = list(
+                                dom = 't',
+                                pageLength = -1,
+                                scrollX = TRUE
+                        ),
+                        class = 'cell-border stripe', # This adds gridlines
+                        rownames = FALSE
+                )
         })
         
-        output$estacode_supp_allowance_table <- renderTable({
-                result_estacode_supp()
+        output$estacode_allowance_table <- renderDT({
+                datatable(
+                        result_estacode(),
+                        options = list(
+                                dom = 't',
+                                pageLength = -1,
+                                scrollX = TRUE
+                        ),
+                        class = 'cell-border stripe', # This adds gridlines
+                        rownames = FALSE
+                )
         })
         
-        output$warm_clothing_allowance_table <- renderTable({
-                result_warm_clothing()
+        output$estacode_supp_allowance_table <- renderDT({
+                datatable(
+                        result_estacode_supp(),
+                        options = list(
+                                dom = 't',
+                                pageLength = -1,
+                                scrollX = TRUE
+                        ),
+                        class = 'cell-border stripe', # This adds gridlines
+                        rownames = FALSE
+                )
+        })
+        
+        output$warm_clothing_allowance_table <- renderDT({
+                datatable(
+                        result_warm_clothing(),
+                        options = list(
+                                dom = 't',
+                                pageLength = -1,
+                                scrollX = TRUE
+                        ),
+                        class = 'cell-border stripe', # This adds gridlines
+                        rownames = FALSE
+                )
         })
         
         output$downloadWord_air <- downloadHandler(
@@ -829,6 +943,30 @@ server <- function(input, output, session) {
                 contentType = "text/csv"
         )
         
+        output$downloadWord_first <- downloadHandler(
+                filename = function() {
+                        paste("Firs_28_days_Allowance_", Sys.Date(), ".docx", sep = "")
+                },
+                content = function(file) {
+                        df <- result_first()
+                        doc <- read_docx() %>%
+                                body_add_table(df, style = "table_template")
+                        print(doc, target = file)
+                },
+                contentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        )
+        
+        output$downloadCSV_first <- downloadHandler(
+                filename = function() {
+                        paste("First_28_days_Allowance_", Sys.Date(), ".csv", sep = "")
+                },
+                content = function(file) {
+                        df <- result_first()
+                        write.csv(df, file, row.names = FALSE)
+                },
+                contentType = "text/csv"
+        )
+        
         output$downloadWord_estacode <- downloadHandler(
                 filename = function() {
                         paste("Estacode_Allowance_", Sys.Date(), ".docx", sep = "")
@@ -853,7 +991,7 @@ server <- function(input, output, session) {
                 contentType = "text/csv"
         )
         
-        output$downloadWord__estacode_supp <- downloadHandler(
+        output$downloadWord_estacode_supp <- downloadHandler(
                 filename = function() {
                         paste("Estacode_Supp_Allowance_", Sys.Date(), ".docx", sep = "")
                 },
@@ -866,7 +1004,7 @@ server <- function(input, output, session) {
                 contentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
         
-        output$downloadCSV__estacode_supp <- downloadHandler(
+        output$downloadCSV_estacode_supp <- downloadHandler(
                 filename = function() {
                         paste("Estacode_Supp_Allowance_", Sys.Date(), ".csv", sep = "")
                 },
@@ -929,6 +1067,20 @@ server <- function(input, output, session) {
                 result_road(NULL)
         })
         
+        observeEvent(input$reset_first, {
+                updateTextInput(session, "name_first", value = "")
+                updateTextInput(session, "travel_from_first", value = "")
+                updateTextInput(session, "travel_to_first", value = "")
+                updateTextInput(session, "rank_first", value = "")
+                updateNumericInput(session, "hotel_rate_per_day", value = "")
+                updateNumericInput(session, "hotel_allowance", value = "")
+                updateNumericInput(session, "rate_per_km", value = "")
+                updateNumericInput(session, "distance_km", value = "")
+                
+                # Reset the reactive value to NULL
+                result_first(NULL)
+        })
+        
         observeEvent(input$reset_estacode, {
                 updateTextInput(session, "name_estacode", value = "")
                 updateTextInput(session, "travel_from_estacode", value = "Nigeria")
@@ -964,5 +1116,19 @@ server <- function(input, output, session) {
 
                 # Reset the reactive value to NULL
                 result_warm_clothing(NULL)
+        })
+        
+                # Help system
+        observeEvent(input$help_btn, {
+                showModal(modalDialog(
+                        title = "NAFDAC Allowances Calculator User Guide",
+                        size = "l",
+                        easyClose = TRUE,
+                        if (file.exists("www/user_guide.pdf")) {
+                                tags$iframe(src = "user_guide.pdf", width = "100%", height = "600px")
+                        } else {
+                                p("User guide documentation is currently unavailable.")
+                        }
+                ))
         })
 }

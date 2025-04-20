@@ -1,0 +1,161 @@
+rank,type,route_type,rate
+CONRAISS 1,taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 2,taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 3,taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 4,taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 5,taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 6,taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 7(Officer II),taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 8(Officer I),taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 9(Senior),taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 11(Principal),taxi_rate,Abuja_Lagos_PH,40000
+CONRAISS 12(Asst Chief),taxi_rate,Abuja_Lagos_PH,52000
+CONRAISS 13(Chief),taxi_rate,Abuja_Lagos_PH,52000
+CONRAISS 14(AD),taxi_rate,Abuja_Lagos_PH,52000
+CONRAISS 15(DD),taxi_rate,Abuja_Lagos_PH,60000
+Director,taxi_rate,Abuja_Lagos_PH,30000
+Chief Executive/Board Members,taxi_rate,Abuja_Lagos_PH,0
+CONRAISS 1,taxi_rate,Abuja_Asaba,33000
+CONRAISS 2,taxi_rate,Abuja_Asaba,33000
+CONRAISS 3,taxi_rate,Abuja_Asaba,33000
+CONRAISS 4,taxi_rate,Abuja_Asaba,33000
+CONRAISS 5,taxi_rate,Abuja_Asaba,33000
+CONRAISS 6,taxi_rate,Abuja_Asaba,33000
+CONRAISS 7(Officer II),taxi_rate,Abuja_Asaba,33000
+CONRAISS 8(Officer I),taxi_rate,Abuja_Asaba,33000
+CONRAISS 9(Senior),taxi_rate,Abuja_Asaba,33000
+CONRAISS 11(Principal),taxi_rate,Abuja_Asaba,33000
+CONRAISS 12(Asst Chief),taxi_rate,Abuja_Asaba,42000
+CONRAISS 13(Chief),taxi_rate,Abuja_Asaba,42000
+CONRAISS 14(AD),taxi_rate,Abuja_Asaba,42000
+CONRAISS 15(DD),taxi_rate,Abuja_Asaba,50000
+Director,taxi_rate,Abuja_Asaba,30000
+Chief Executive/Board Members,taxi_rate,Abuja_Asaba,0
+CONRAISS 1,taxi_rate,Abuja_Jos,34000
+CONRAISS 2,taxi_rate,Abuja_Jos,34000
+CONRAISS 3,taxi_rate,Abuja_Jos,34000
+CONRAISS 4,taxi_rate,Abuja_Jos,34000
+CONRAISS 5,taxi_rate,Abuja_Jos,34000
+CONRAISS 6,taxi_rate,Abuja_Jos,34000
+CONRAISS 7(Officer II),taxi_rate,Abuja_Jos,34000
+CONRAISS 8(Officer I),taxi_rate,Abuja_Jos,34000
+CONRAISS 9(Senior),taxi_rate,Abuja_Jos,34000
+CONRAISS 11(Principal),taxi_rate,Abuja_Jos,34000
+CONRAISS 12(Asst Chief),taxi_rate,Abuja_Jos,43000
+CONRAISS 13(Chief),taxi_rate,Abuja_Jos,43000
+CONRAISS 14(AD),taxi_rate,Abuja_Jos,43000
+CONRAISS 15(DD),taxi_rate,Abuja_Jos,50000
+Director,taxi_rate,Abuja_Jos,30000
+Chief Executive/Board Members,taxi_rate,Abuja_Jos,0
+CONRAISS 1,taxi_rate,Abuja_Calabar,38000
+CONRAISS 2,taxi_rate,Abuja_Calabar,38000
+CONRAISS 3,taxi_rate,Abuja_Calabar,38000
+CONRAISS 4,taxi_rate,Abuja_Calabar,38000
+CONRAISS 5,taxi_rate,Abuja_Calabar,38000
+CONRAISS 6,taxi_rate,Abuja_Calabar,38000
+CONRAISS 7(Officer II),taxi_rate,Abuja_Calabar,38000
+CONRAISS 8(Officer I),taxi_rate,Abuja_Calabar,38000
+CONRAISS 9(Senior),taxi_rate,Abuja_Calabar,38000
+CONRAISS 11(Principal),taxi_rate,Abuja_Calabar,38000
+CONRAISS 12(Asst Chief),taxi_rate,Abuja_Calabar,48000
+CONRAISS 13(Chief),taxi_rate,Abuja_Calabar,48000
+CONRAISS 14(AD),taxi_rate,Abuja_Calabar,48000
+CONRAISS 15(DD),taxi_rate,Abuja_Calabar,50000
+Director,taxi_rate,Abuja_Calabar,30000
+Chief Executive/Board Members,taxi_rate,Abuja_Calabar,0
+CONRAISS 1,taxi_rate,Asaba_Warri,26000
+CONRAISS 2,taxi_rate,Asaba_Warri,26000
+CONRAISS 3,taxi_rate,Asaba_Warri,26000
+CONRAISS 4,taxi_rate,Asaba_Warri,26000
+CONRAISS 5,taxi_rate,Asaba_Warri,26000
+CONRAISS 6,taxi_rate,Asaba_Warri,26000
+CONRAISS 7(Officer II),taxi_rate,Asaba_Warri,26000
+CONRAISS 8(Officer I),taxi_rate,Asaba_Warri,26000
+CONRAISS 9(Senior),taxi_rate,Asaba_Warri,26000
+CONRAISS 11(Principal),taxi_rate,Asaba_Warri,26000
+CONRAISS 12(Asst Chief),taxi_rate,Asaba_Warri,32000
+CONRAISS 13(Chief),taxi_rate,Asaba_Warri,32000
+CONRAISS 14(AD),taxi_rate,Asaba_Warri,32000
+CONRAISS 15(DD),taxi_rate,Asaba_Warri,40000
+Director,taxi_rate,Asaba_Warri,20000
+Chief Executive/Board Members,taxi_rate,Asaba_Warri,0
+CONRAISS 1,taxi_rate,Asaba_Jos,27000
+CONRAISS 2,taxi_rate,Asaba_Jos,27000
+CONRAISS 3,taxi_rate,Asaba_Jos,27000
+CONRAISS 4,taxi_rate,Asaba_Jos,27000
+CONRAISS 5,taxi_rate,Asaba_Jos,27000
+CONRAISS 6,taxi_rate,Asaba_Jos,27000
+CONRAISS 7(Officer II),taxi_rate,Asaba_Jos,27000
+CONRAISS 8(Officer I),taxi_rate,Asaba_Jos,27000
+CONRAISS 9(Senior),taxi_rate,Asaba_Jos,27000
+CONRAISS 11(Principal),taxi_rate,Asaba_Jos,27000
+CONRAISS 12(Asst Chief),taxi_rate,Asaba_Jos,33000
+CONRAISS 13(Chief),taxi_rate,Asaba_Jos,33000
+CONRAISS 14(AD),taxi_rate,Asaba_Jos,33000
+CONRAISS 15(DD),taxi_rate,Asaba_Jos,40000
+Director,taxi_rate,Asaba_Jos,20000
+Chief Executive/Board Members,taxi_rate,Asaba_Jos,0
+CONRAISS 1,taxi_rate,Asaba_Calabar,31000
+CONRAISS 2,taxi_rate,Asaba_Calabar,31000
+CONRAISS 3,taxi_rate,Asaba_Calabar,31000
+CONRAISS 4,taxi_rate,Asaba_Calabar,31000
+CONRAISS 5,taxi_rate,Asaba_Calabar,31000
+CONRAISS 6,taxi_rate,Asaba_Calabar,31000
+CONRAISS 7(Officer II),taxi_rate,Asaba_Calabar,31000
+CONRAISS 8(Officer I),taxi_rate,Asaba_Calabar,31000
+CONRAISS 9(Senior),taxi_rate,Asaba_Calabar,31000
+CONRAISS 11(Principal),taxi_rate,Asaba_Calabar,31000
+CONRAISS 12(Asst Chief),taxi_rate,Asaba_Calabar,35000
+CONRAISS 13(Chief),taxi_rate,Asaba_Calabar,35000
+CONRAISS 14(AD),taxi_rate,Asaba_Calabar,35000
+CONRAISS 15(DD),taxi_rate,Asaba_Calabar,40000
+Director,taxi_rate,Asaba_Calabar,20000
+Chief Executive/Board Members,taxi_rate,Asaba_Calabar,0
+CONRAISS 1,taxi_rate,Jos_Calabar,32000
+CONRAISS 2,taxi_rate,Jos_Calabar,32000
+CONRAISS 3,taxi_rate,Jos_Calabar,32000
+CONRAISS 4,taxi_rate,Jos_Calabar,32000
+CONRAISS 5,taxi_rate,Jos_Calabar,32000
+CONRAISS 6,taxi_rate,Jos_Calabar,32000
+CONRAISS 7(Officer II),taxi_rate,Jos_Calabar,32000
+CONRAISS 8(Officer I),taxi_rate,Jos_Calabar,32000
+CONRAISS 9(Senior),taxi_rate,Jos_Calabar,32000
+CONRAISS 11(Principal),taxi_rate,Jos_Calabar,32000
+CONRAISS 12(Asst Chief),taxi_rate,Jos_Calabar,36000
+CONRAISS 13(Chief),taxi_rate,Jos_Calabar,36000
+CONRAISS 14(AD),taxi_rate,Jos_Calabar,36000
+CONRAISS 15(DD),taxi_rate,Jos_Calabar,40000
+Director,taxi_rate,Jos_Calabar,20000
+Chief Executive/Board Members,taxi_rate,Jos_Calabar,0
+CONRAISS 1,taxi_rate,Jos_Sokoto,28000
+CONRAISS 2,taxi_rate,Jos_Sokoto,28000
+CONRAISS 3,taxi_rate,Jos_Sokoto,28000
+CONRAISS 4,taxi_rate,Jos_Sokoto,28000
+CONRAISS 5,taxi_rate,Jos_Sokoto,28000
+CONRAISS 6,taxi_rate,Jos_Sokoto,28000
+CONRAISS 7(Officer II),taxi_rate,Jos_Sokoto,28000
+CONRAISS 8(Officer I),taxi_rate,Jos_Sokoto,28000
+CONRAISS 9(Senior),taxi_rate,Jos_Sokoto,28000
+CONRAISS 11(Principal),taxi_rate,Jos_Sokoto,28000
+CONRAISS 12(Asst Chief),taxi_rate,Jos_Sokoto,34000
+CONRAISS 13(Chief),taxi_rate,Jos_Sokoto,34000
+CONRAISS 14(AD),taxi_rate,Jos_Sokoto,34000
+CONRAISS 15(DD),taxi_rate,Jos_Sokoto,40000
+Director,taxi_rate,Jos_Sokoto,20000
+Chief Executive/Board Members,taxi_rate,Jos_Sokoto,0
+CONRAISS 1,taxi_rate,Calabar_Uyo,36000
+CONRAISS 2,taxi_rate,Calabar_Uyo,36000
+CONRAISS 3,taxi_rate,Calabar_Uyo,36000
+CONRAISS 4,taxi_rate,Calabar_Uyo,36000
+CONRAISS 5,taxi_rate,Calabar_Uyo,36000
+CONRAISS 6,taxi_rate,Calabar_Uyo,36000
+CONRAISS 7(Officer II),taxi_rate,Calabar_Uyo,36000
+CONRAISS 8(Officer I),taxi_rate,Calabar_Uyo,36000
+CONRAISS 9(Senior),taxi_rate,Calabar_Uyo,36000
+CONRAISS 11(Principal),taxi_rate,Calabar_Uyo,36000
+CONRAISS 12(Asst Chief),taxi_rate,Calabar_Uyo,38000
+CONRAISS 13(Chief),taxi_rate,Calabar_Uyo,38000
+CONRAISS 14(AD),taxi_rate,Calabar_Uyo,38000
+CONRAISS 15(DD),taxi_rate,Calabar_Uyo,40000
+Director,taxi_rate,Calabar_Uyo,20000
+Chief Executive/Board Members,taxi_rate,Calabar_Uyo,0

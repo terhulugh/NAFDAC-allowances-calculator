@@ -1,0 +1,1333 @@
+from_city,to_city,distance_km
+Abakaliki,Abeokuta,656
+Abakaliki,Abuja,477
+Abakaliki,Ado Ekiti,566
+Abakaliki,Akure,506
+Abakaliki,Asaba,193
+Abakaliki,Awka,145
+Abakaliki,Bauchi,824
+Abakaliki,Benin City,332
+Abakaliki,Birnin Kebbi,1204
+Abakaliki,Calabar,350
+Abakaliki,Damaturu,1183
+Abakaliki,Dutse,994
+Abakaliki,Enugu,84
+Abakaliki,Gombe,974
+Abakaliki,Gusau,1116
+Abakaliki,Ibadan,642
+Abakaliki,Lagos,660
+Abakaliki,Ilorin,737
+Abakaliki,Jalingo,626
+Abakaliki,Jos,692
+Abakaliki,Kaduna,856
+Abakaliki,Kano,1167
+Abakaliki,Katsina,1286
+Abakaliki,Lafia,388
+Abakaliki,Lokoja,476
+Abakaliki,Maiduguri,1285
+Abakaliki,Makurdi,258
+Abakaliki,Minna,682
+Abakaliki,Osogbo,546
+Abakaliki,Owerri,230
+Abakaliki,Port Harcourt,313
+Abakaliki,Sokoto,1356
+Abakaliki,Umuahia,202
+Abakaliki,Uyo,273
+Abakaliki,Yenagoa,345
+Abakaliki,Yola,954
+Abeokuta,Abuja,722
+Abeokuta,Ado Ekiti,340
+Abeokuta,Akure,280
+Abeokuta,Asaba,458
+Abeokuta,Awka,444
+Abeokuta,Bauchi,1143
+Abeokuta,Benin City,314
+Abeokuta,Birnin Kebbi,756
+Abeokuta,Calabar,764
+Abeokuta,Damaturu,1384
+Abeokuta,Dutse,1140
+Abeokuta,Enugu,572
+Abeokuta,Gombe,1304
+Abeokuta,Gusau,1110
+Abeokuta,Ibadan,75
+Abeokuta,Lagos,82
+Abeokuta,Ilorin,238
+Abeokuta,Jalingo,1312
+Abeokuta,Jos,1015
+Abeokuta,Kaduna,835
+Abeokuta,Kano,1088
+Abeokuta,Katsina,1181
+Abeokuta,Lafia,902
+Abeokuta,Lokoja,520
+Abeokuta,Maiduguri,1596
+Abeokuta,Makurdi,991
+Abeokuta,Minna,663
+Abeokuta,Osogbo,157
+Abeokuta,Owerri,559
+Abeokuta,Port Harcourt,671
+Abeokuta,Sokoto,970
+Abeokuta,Umuahia,595
+Abeokuta,Uyo,671
+Abeokuta,Yenagoa,524
+Abeokuta,Yola,1580
+Abuja,Ado Ekiti,450
+Abuja,Akure,420
+Abuja,Asaba,404
+Abuja,Awka,440
+Abuja,Bauchi,419
+Abuja,Benin City,493
+Abuja,Birnin Kebbi,573
+Abuja,Calabar,729
+Abuja,Damaturu,957
+Abuja,Dutse,512
+Abuja,Enugu,393
+Abuja,Gombe,506
+Abuja,Gusau,490
+Abuja,Ibadan,645
+Abuja,Lagos,761
+Abuja,Ilorin,482
+Abuja,Jalingo,691
+Abuja,Jos,297
+Abuja,Kaduna,186
+Abuja,Kano,396
+Abuja,Katsina,570
+Abuja,Lafia,180
+Abuja,Lokoja,183
+Abuja,Maiduguri,875
+Abuja,Makurdi,280
+Abuja,Minna,156
+Abuja,Osogbo,428
+Abuja,Owerri,533
+Abuja,Port Harcourt,616
+Abuja,Sokoto,748
+Abuja,Umuahia,513
+Abuja,Uyo,593
+Abuja,Yenagoa,647
+Abuja,Yola,704
+Ado Ekiti,Akure,50
+Ado Ekiti,Asaba,368
+Ado Ekiti,Awka,412
+Ado Ekiti,Bauchi,945
+Ado Ekiti,Benin City,228
+Ado Ekiti,Birnin Kebbi,634
+Ado Ekiti,Calabar,579
+Ado Ekiti,Damaturu,1207
+Ado Ekiti,Dutse,1130
+Ado Ekiti,Enugu,482
+Ado Ekiti,Gombe,1124
+Ado Ekiti,Gusau,1021
+Ado Ekiti,Ibadan,254
+Ado Ekiti,Lagos,401
+Ado Ekiti,Ilorin,164
+Ado Ekiti,Jalingo,940
+Ado Ekiti,Jos,940
+Ado Ekiti,Kaduna,761
+Ado Ekiti,Kano,1010
+Ado Ekiti,Katsina,1071
+Ado Ekiti,Lafia,640
+Ado Ekiti,Lokoja,296
+Ado Ekiti,Maiduguri,536
+Ado Ekiti,Makurdi,640
+Ado Ekiti,Minna,596
+Ado Ekiti,Osogbo,178
+Ado Ekiti,Owerri,473
+Ado Ekiti,Port Harcourt,584
+Ado Ekiti,Sokoto,894
+Ado Ekiti,Umuahia,510
+Ado Ekiti,Uyo,605
+Ado Ekiti,Yenagoa,438
+Ado Ekiti,Yola,1236
+Akure,Asaba,310
+Akure,Awka,342
+Akure,Bauchi,885
+Akure,Benin City,165
+Akure,Birnin Kebbi,711
+Akure,Calabar,619
+Akure,Damaturu,1147
+Akure,Dutse,1070
+Akure,Enugu,422
+Akure,Gombe,1255
+Akure,Gusau,1057
+Akure,Ibadan,204
+Akure,Lagos,341
+Akure,Ilorin,199
+Akure,Jalingo,880
+Akure,Jos,682
+Akure,Kaduna,749
+Akure,Kano,1048
+Akure,Katsina,1108
+Akure,Lafia,600
+Akure,Lokoja,236
+Akure,Maiduguri,1279
+Akure,Makurdi,580
+Akure,Minna,632
+Akure,Osogbo,118
+Akure,Owerri,413
+Akure,Port Harcourt,524
+Akure,Sokoto,930
+Akure,Umuahia,430
+Akure,Uyo,545
+Akure,Yenagoa,378
+Akure,Yola,1165
+Asaba,Awka,44
+Asaba,Bauchi,624
+Asaba,Benin City,133
+Asaba,Birnin Kebbi,1027
+Asaba,Calabar,297
+Asaba,Damaturu,1135
+Asaba,Dutse,1080
+Asaba,Enugu,109
+Asaba,Gombe,979
+Asaba,Gusau,1005
+Asaba,Ibadan,430
+Asaba,Lagos,467
+Asaba,Ilorin,507
+Asaba,Jalingo,859
+Asaba,Jos,692
+Asaba,Kaduna,745
+Asaba,Kano,1007
+Asaba,Katsina,1098
+Asaba,Lafia,435
+Asaba,Lokoja,362
+Asaba,Maiduguri,1288
+Asaba,Makurdi,353
+Asaba,Minna,673
+Asaba,Osogbo,396
+Asaba,Owerri,97
+Asaba,Port Harcourt,225
+Asaba,Sokoto,1232
+Asaba,Umuahia,166
+Asaba,Uyo,247
+Asaba,Yenagoa,213
+Asaba,Yola,960
+Awka,Bauchi,803
+Awka,Benin City,166
+Awka,Birnin Kebbi,1245
+Awka,Calabar,259
+Awka,Damaturu,1115
+Awka,Dutse,976
+Awka,Enugu,62
+Awka,Gombe,958
+Awka,Gusau,984
+Awka,Ibadan,457
+Awka,Lagos,494
+Awka,Ilorin,528
+Awka,Jalingo,815
+Awka,Jos,671
+Awka,Kaduna,724
+Awka,Kano,988
+Awka,Katsina,1077
+Awka,Lafia,416
+Awka,Lokoja,456
+Awka,Maiduguri,1245
+Awka,Makurdi,332
+Awka,Minna,926
+Awka,Osogbo,425
+Awka,Owerri,141
+Awka,Port Harcourt,255
+Awka,Sokoto,1211
+Awka,Umuahia,126
+Awka,Uyo,207
+Awka,Yenagoa,257
+Awka,Yola,746
+Bauchi,Benin City,850
+Bauchi,Birnin Kebbi,962
+Bauchi,Calabar,1002
+Bauchi,Damaturu,312
+Bauchi,Dutse,313
+Bauchi,Enugu,740
+Bauchi,Gombe,155
+Bauchi,Gusau,670
+Bauchi,Ibadan,1053
+Bauchi,Lagos,1202
+Bauchi,Ilorin,909
+Bauchi,Jalingo,610
+Bauchi,Jos,180
+Bauchi,Kaduna,410
+Bauchi,Kano,301
+Bauchi,Katsina,518
+Bauchi,Lafia,326
+Bauchi,Lokoja,601
+Bauchi,Maiduguri,462
+Bauchi,Makurdi,469
+Bauchi,Minna,590
+Bauchi,Osogbo,908
+Bauchi,Owerri,879
+Bauchi,Port Harcourt,970
+Bauchi,Sokoto,777
+Bauchi,Umuahia,660
+Bauchi,Uyo,943
+Bauchi,Yenagoa,995
+Bauchi,Yola,416
+Benin City,Birnin Kebbi,862
+Benin City,Calabar,490
+Benin City,Damaturu,1274
+Benin City,Dutse,880
+Benin City,Enugu,254
+Benin City,Gombe,1044
+Benin City,Gusau,1046
+Benin City,Ibadan,300
+Benin City,Lagos,322
+Benin City,Ilorin,399
+Benin City,Jalingo,998
+Benin City,Jos,758
+Benin City,Kaduna,785
+Benin City,Kano,1049
+Benin City,Katsina,1252
+Benin City,Lafia,673
+Benin City,Lokoja,287
+Benin City,Maiduguri,1353
+Benin City,Makurdi,506
+Benin City,Minna,608
+Benin City,Osogbo,259
+Benin City,Owerri,240
+Benin City,Port Harcourt,296
+Benin City,Sokoto,1020
+Benin City,Umuahia,279
+Benin City,Uyo,375
+Benin City,Yenagoa,210
+Benin City,Yola,1107
+Birnin Kebbi,Calabar,1318
+Birnin Kebbi,Damaturu,1181
+Birnin Kebbi,Dutse,660
+Birnin Kebbi,Enugu,1120
+Birnin Kebbi,Gombe,1117
+Birnin Kebbi,Gusau,322
+Birnin Kebbi,Ibadan,679
+Birnin Kebbi,Lagos,826
+Birnin Kebbi,Ilorin,520
+Birnin Kebbi,Jalingo,1266
+Birnin Kebbi,Jos,830
+Birnin Kebbi,Kaduna,550
+Birnin Kebbi,Kano,651
+Birnin Kebbi,Katsina,596
+Birnin Kebbi,Lafia,753
+Birnin Kebbi,Lokoja,832
+Birnin Kebbi,Maiduguri,1404
+Birnin Kebbi,Makurdi,898
+Birnin Kebbi,Minna,456
+Birnin Kebbi,Osogbo,635
+Birnin Kebbi,Owerri,1124
+Birnin Kebbi,Port Harcourt,1282
+Birnin Kebbi,Sokoto,168
+Birnin Kebbi,Umuahia,1272
+Birnin Kebbi,Uyo,1353
+Birnin Kebbi,Yenagoa,1092
+Birnin Kebbi,Yola,1408
+Calabar,Damaturu,988
+Calabar,Dutse,1050
+Calabar,Enugu,276
+Calabar,Gombe,1152
+Calabar,Gusau,1309
+Calabar,Ibadan,518
+Calabar,Lagos,772
+Calabar,Ilorin,849
+Calabar,Jalingo,624
+Calabar,Jos,370
+Calabar,Kaduna,1034
+Calabar,Kano,1296
+Calabar,Katsina,1464
+Calabar,Lafia,514
+Calabar,Lokoja,579
+Calabar,Maiduguri,1465
+Calabar,Makurdi,532
+Calabar,Minna,860
+Calabar,Osogbo,695
+Calabar,Owerri,200
+Calabar,Port Harcourt,196
+Calabar,Sokoto,1535
+Calabar,Umuahia,151
+Calabar,Uyo,67
+Calabar,Yenagoa,300
+Calabar,Yola,1132
+Damaturu,Dutse,288
+Damaturu,Enugu,1099
+Damaturu,Gombe,256
+Damaturu,Gusau,710
+Damaturu,Ibadan,1274
+Damaturu,Lagos,1421
+Damaturu,Ilorin,1292
+Damaturu,Jalingo,364
+Damaturu,Jos,444
+Damaturu,Kaduna,724
+Damaturu,Kano,430
+Damaturu,Katsina,603
+Damaturu,Lafia,540
+Damaturu,Lokoja,895
+Damaturu,Maiduguri,130
+Damaturu,Makurdi,783
+Damaturu,Minna,874
+Damaturu,Osogbo,1407
+Damaturu,Owerri,1273
+Damaturu,Port Harcourt,1172
+Damaturu,Sokoto,1013
+Damaturu,Umuahia,1251
+Damaturu,Uyo,1038
+Damaturu,Yenagoa,1523
+Damaturu,Yola,322
+Dutse,Enugu,910
+Dutse,Gombe,895
+Dutse,Gusau,416
+Dutse,Ibadan,963
+Dutse,Lagos,1110
+Dutse,Ilorin,846
+Dutse,Jalingo,542
+Dutse,Jos,428
+Dutse,Kaduna,338
+Dutse,Kano,136
+Dutse,Katsina,296
+Dutse,Lafia,634
+Dutse,Lokoja,650
+Dutse,Maiduguri,418
+Dutse,Makurdi,708
+Dutse,Minna,558
+Dutse,Osogbo,958
+Dutse,Owerri,1076
+Dutse,Port Harcourt,1150
+Dutse,Sokoto,520
+Dutse,Umuahia,1030
+Dutse,Uyo,1150
+Dutse,Yenagoa,1192
+Dutse,Yola,558
+Enugu,Gombe,890
+Enugu,Gusau,1046
+Enugu,Ibadan,558
+Enugu,Lagos,376
+Enugu,Ilorin,653
+Enugu,Jalingo,735
+Enugu,Jos,608
+Enugu,Kaduna,772
+Enugu,Kano,1083
+Enugu,Katsina,1202
+Enugu,Lafia,705
+Enugu,Lokoja,392
+Enugu,Maiduguri,1201
+Enugu,Makurdi,270
+Enugu,Minna,598
+Enugu,Osogbo,462
+Enugu,Owerri,145
+Enugu,Port Harcourt,229
+Enugu,Sokoto,1272
+Enugu,Umuahia,118
+Enugu,Uyo,189
+Enugu,Yenagoa,265
+Enugu,Yola,870
+Gombe,Gusau,718
+Gombe,Ibadan,1223
+Gombe,Lagos,1358
+Gombe,Ilorin,1064
+Gombe,Jalingo,279
+Gombe,Jos,286
+Gombe,Kaduna,566
+Gombe,Kano,457
+Gombe,Katsina,675
+Gombe,Lafia,482
+Gombe,Lokoja,756
+Gombe,Maiduguri,400
+Gombe,Makurdi,623
+Gombe,Minna,745
+Gombe,Osogbo,1383
+Gombe,Owerri,1030
+Gombe,Port Harcourt,1122
+Gombe,Sokoto,931
+Gombe,Umuahia,1010
+Gombe,Uyo,1094
+Gombe,Yenagoa,1146
+Gombe,Yola,262
+Gusau,Ibadan,1017
+Gusau,Lagos,1150
+Gusau,Ilorin,857
+Gusau,Jalingo,1062
+Gusau,Jos,330
+Gusau,Kaduna,260
+Gusau,Kano,260
+Gusau,Katsina,463
+Gusau,Lafia,650
+Gusau,Lokoja,692
+Gusau,Maiduguri,914
+Gusau,Makurdi,774
+Gusau,Minna,558
+Gusau,Osogbo,972
+Gusau,Owerri,1180
+Gusau,Port Harcourt,1280
+Gusau,Sokoto,274
+Gusau,Umuahia,1150
+Gusau,Uyo,1240
+Gusau,Yenagoa,1270
+Gusau,Yola,971
+Ibadan,Lagos,132
+Ibadan,Ilorin,157
+Ibadan,Jalingo,1117
+Ibadan,Jos,928
+Ibadan,Kaduna,756
+Ibadan,Kano,1005
+Ibadan,Katsina,1065
+Ibadan,Lafia,825
+Ibadan,Lokoja,584
+Ibadan,Maiduguri,1532
+Ibadan,Makurdi,920
+Ibadan,Minna,592
+Ibadan,Osogbo,90
+Ibadan,Owerri,450
+Ibadan,Port Harcourt,656
+Ibadan,Sokoto,890
+Ibadan,Umuahia,580
+Ibadan,Uyo,676
+Ibadan,Yenagoa,510
+Ibadan,Yola,1543
+Lagos,Ilorin,291
+Lagos,Jalingo,1264
+Lagos,Jos,1168
+Lagos,Kaduna,889
+Lagos,Kano,1139
+Lagos,Katsina,1211
+Lagos,Lafia,941
+Lagos,Lokoja,531
+Lagos,Maiduguri,1665
+Lagos,Makurdi,820
+Lagos,Minna,725
+Lagos,Osogbo,237
+Lagos,Owerri,564
+Lagos,Port Harcourt,620
+Lagos,Sokoto,1023
+Lagos,Umuahia,600
+Lagos,Uyo,689
+Lagos,Yenagoa,532
+Lagos,Yola,1612
+Ilorin,Jalingo,958
+Ilorin,Jos,776
+Ilorin,Kaduna,597
+Ilorin,Kano,846
+Ilorin,Katsina,907
+Ilorin,Lafia,660
+Ilorin,Lokoja,319
+Ilorin,Maiduguri,1372
+Ilorin,Makurdi,863
+Ilorin,Minna,432
+Ilorin,Osogbo,115
+Ilorin,Owerri,667
+Ilorin,Port Harcourt,843
+Ilorin,Sokoto,730
+Ilorin,Umuahia,770
+Ilorin,Uyo,865
+Ilorin,Yenagoa,609
+Ilorin,Yola,319
+Jalingo,Jos,542
+Jalingo,Kaduna,822
+Jalingo,Kano,731
+Jalingo,Katsina,1084
+Jalingo,Lafia,450
+Jalingo,Lokoja,648
+Jalingo,Maiduguri,416
+Jalingo,Makurdi,368
+Jalingo,Minna,808
+Jalingo,Osogbo,1073
+Jalingo,Owerri,808
+Jalingo,Port Harcourt,808
+Jalingo,Sokoto,1188
+Jalingo,Umuahia,756
+Jalingo,Uyo,674
+Jalingo,Yenagoa,924
+Jalingo,Yola,142
+Jos,Kaduna,278
+Jos,Kano,418
+Jos,Katsina,592
+Jos,Lafia,196
+Jos,Lokoja,469
+Jos,Maiduguri,592
+Jos,Makurdi,336
+Jos,Minna,457
+Jos,Osogbo,776
+Jos,Owerri,745
+Jos,Port Harcourt,840
+Jos,Sokoto,644
+Jos,Umuahia,727
+Jos,Uyo,811
+Jos,Yenagoa,861
+Jos,Yola,540
+Kaduna,Kano,220
+Kaduna,Katsina,428
+Kaduna,Lafia,474
+Kaduna,Lokoja,502
+Kaduna,Maiduguri,874
+Kaduna,Makurdi,500
+Kaduna,Minna,297
+Kaduna,Osogbo,715
+Kaduna,Owerri,910
+Kaduna,Port Harcourt,1003
+Kaduna,Sokoto,480
+Kaduna,Umuahia,890
+Kaduna,Uyo,975
+Kaduna,Yenagoa,1026
+Kaduna,Yola,820
+Kano,Katsina,172
+Kano,Lafia,618
+Kano,Lokoja,766
+Kano,Maiduguri,574
+Kano,Makurdi,756
+Kano,Minna,503
+Kano,Osogbo,915
+Kano,Owerri,1173
+Kano,Port Harcourt,1270
+Kano,Sokoto,645
+Kano,Umuahia,1153
+Kano,Uyo,1237
+Kano,Yenagoa,1289
+Kano,Yola,714
+Katsina,Lafia,788
+Katsina,Lokoja,918
+Katsina,Maiduguri,794
+Katsina,Makurdi,850
+Katsina,Minna,606
+Katsina,Osogbo,1008
+Katsina,Owerri,1142
+Katsina,Port Harcourt,1438
+Katsina,Sokoto,380
+Katsina,Umuahia,1322
+Katsina,Uyo,1406
+Katsina,Yenagoa,1258
+Katsina,Yola,875
+Lafia,Lokoja,384
+Lafia,Maiduguri,728
+Lafia,Makurdi,82
+Lafia,Minna,297
+Lafia,Osogbo,387
+Lafia,Owerri,490
+Lafia,Port Harcourt,587
+Lafia,Sokoto,840
+Lafia,Umuahia,456
+Lafia,Uyo,558
+Lafia,Yenagoa,606
+Lafia,Yola,736
+Lokoja,Maiduguri,1063
+Lokoja,Makurdi,342
+Lokoja,Minna,309
+Lokoja,Osogbo,305
+Lokoja,Owerri,424
+Lokoja,Port Harcourt,521
+Lokoja,Sokoto,985
+Lokoja,Umuahia,405
+Lokoja,Uyo,490
+Lokoja,Yenagoa,540
+Lokoja,Yola,945
+Maiduguri,Makurdi,930
+Maiduguri,Minna,1052
+Maiduguri,Osogbo,1372
+Maiduguri,Owerri,1142
+Maiduguri,Port Harcourt,1419
+Maiduguri,Sokoto,1123
+Maiduguri,Umuahia,1323
+Maiduguri,Uyo,1406
+Maiduguri,Yenagoa,1258
+Maiduguri,Yola,436
+Makurdi,Minna,440
+Makurdi,Osogbo,618
+Makurdi,Owerri,408
+Makurdi,Port Harcourt,505
+Makurdi,Sokoto,1116
+Makurdi,Umuahia,374
+Makurdi,Uyo,473
+Makurdi,Yenagoa,524
+Makurdi,Yola,674
+Minna,Osogbo,552
+Minna,Owerri,735
+Minna,Port Harcourt,830
+Minna,Sokoto,674
+Minna,Umuahia,716
+Minna,Uyo,800
+Minna,Yenagoa,851
+Minna,Yola,1124
+Osogbo,Owerri,495
+Osogbo,Port Harcourt,623
+Osogbo,Sokoto,348
+Osogbo,Umuahia,564
+Osogbo,Uyo,645
+Osogbo,Yenagoa,469
+Osogbo,Yola,225
+Owerri,Port Harcourt,112
+Owerri,Sokoto,1411
+Owerri,Umuahia,165
+Owerri,Uyo,250
+Owerri,Yenagoa,116
+Owerri,Yola,1008
+Port Harcourt,Sokoto,1263
+Port Harcourt,Umuahia,114
+Port Harcourt,Uyo,120
+Port Harcourt,Yenagoa,104
+Port Harcourt,Yola,1105
+Sokoto,Umuahia,1376
+Sokoto,Uyo,1475
+Sokoto,Yenagoa,1527
+Sokoto,Yola,1187
+Umuahia,Uyo,88
+Umuahia,Yenagoa,281
+Umuahia,Yola,917
+Uyo,Yenagoa,224
+Uyo,Yola,1073
+Yenagoa,Yola,1124
+Abeokuta,Abakaliki,656
+Abuja,Abakaliki,477
+Ado Ekiti,Abakaliki,566
+Akure,Abakaliki,506
+Asaba,Abakaliki,193
+Awka,Abakaliki,145
+Bauchi,Abakaliki,824
+Benin City,Abakaliki,332
+Birnin Kebbi,Abakaliki,1204
+Calabar,Abakaliki,350
+Damaturu,Abakaliki,1183
+Dutse,Abakaliki,994
+Enugu,Abakaliki,84
+Gombe,Abakaliki,974
+Gusau,Abakaliki,1116
+Ibadan,Abakaliki,642
+Lagos,Abakaliki,660
+Ilorin,Abakaliki,737
+Jalingo,Abakaliki,626
+Jos,Abakaliki,692
+Kaduna,Abakaliki,856
+Kano,Abakaliki,1167
+Katsina,Abakaliki,1286
+Lafia,Abakaliki,388
+Lokoja,Abakaliki,476
+Maiduguri,Abakaliki,1285
+Makurdi,Abakaliki,258
+Minna,Abakaliki,682
+Osogbo,Abakaliki,546
+Owerri,Abakaliki,230
+Port Harcourt,Abakaliki,313
+Sokoto,Abakaliki,1356
+Umuahia,Abakaliki,202
+Uyo,Abakaliki,273
+Yenagoa,Abakaliki,345
+Yola,Abakaliki,954
+Abuja,Abeokuta,722
+Ado Ekiti,Abeokuta,340
+Akure,Abeokuta,280
+Asaba,Abeokuta,458
+Awka,Abeokuta,444
+Bauchi,Abeokuta,1143
+Benin City,Abeokuta,314
+Birnin Kebbi,Abeokuta,756
+Calabar,Abeokuta,764
+Damaturu,Abeokuta,1384
+Dutse,Abeokuta,1140
+Enugu,Abeokuta,572
+Gombe,Abeokuta,1304
+Gusau,Abeokuta,1110
+Ibadan,Abeokuta,75
+Lagos,Abeokuta,82
+Ilorin,Abeokuta,238
+Jalingo,Abeokuta,1312
+Jos,Abeokuta,1015
+Kaduna,Abeokuta,835
+Kano,Abeokuta,1088
+Katsina,Abeokuta,1181
+Lafia,Abeokuta,902
+Lokoja,Abeokuta,520
+Maiduguri,Abeokuta,1596
+Makurdi,Abeokuta,991
+Minna,Abeokuta,663
+Osogbo,Abeokuta,157
+Owerri,Abeokuta,559
+Port Harcourt,Abeokuta,671
+Sokoto,Abeokuta,970
+Umuahia,Abeokuta,595
+Uyo,Abeokuta,671
+Yenagoa,Abeokuta,524
+Yola,Abeokuta,1580
+Ado Ekiti,Abuja,450
+Akure,Abuja,420
+Asaba,Abuja,404
+Awka,Abuja,440
+Bauchi,Abuja,419
+Benin City,Abuja,493
+Birnin Kebbi,Abuja,573
+Calabar,Abuja,729
+Damaturu,Abuja,957
+Dutse,Abuja,512
+Enugu,Abuja,393
+Gombe,Abuja,506
+Gusau,Abuja,490
+Ibadan,Abuja,645
+Lagos,Abuja,761
+Ilorin,Abuja,482
+Jalingo,Abuja,691
+Jos,Abuja,297
+Kaduna,Abuja,186
+Kano,Abuja,396
+Katsina,Abuja,570
+Lafia,Abuja,180
+Lokoja,Abuja,183
+Maiduguri,Abuja,875
+Makurdi,Abuja,280
+Minna,Abuja,156
+Osogbo,Abuja,428
+Owerri,Abuja,533
+Port Harcourt,Abuja,616
+Sokoto,Abuja,748
+Umuahia,Abuja,513
+Uyo,Abuja,593
+Yenagoa,Abuja,647
+Yola,Abuja,704
+Akure,Ado Ekiti,50
+Asaba,Ado Ekiti,368
+Awka,Ado Ekiti,412
+Bauchi,Ado Ekiti,945
+Benin City,Ado Ekiti,228
+Birnin Kebbi,Ado Ekiti,634
+Calabar,Ado Ekiti,579
+Damaturu,Ado Ekiti,1207
+Dutse,Ado Ekiti,1130
+Enugu,Ado Ekiti,482
+Gombe,Ado Ekiti,1124
+Gusau,Ado Ekiti,1021
+Ibadan,Ado Ekiti,254
+Lagos,Ado Ekiti,401
+Ilorin,Ado Ekiti,164
+Jalingo,Ado Ekiti,940
+Jos,Ado Ekiti,940
+Kaduna,Ado Ekiti,761
+Kano,Ado Ekiti,1010
+Katsina,Ado Ekiti,1071
+Lafia,Ado Ekiti,640
+Lokoja,Ado Ekiti,296
+Maiduguri,Ado Ekiti,536
+Makurdi,Ado Ekiti,640
+Minna,Ado Ekiti,596
+Osogbo,Ado Ekiti,178
+Owerri,Ado Ekiti,473
+Port Harcourt,Ado Ekiti,584
+Sokoto,Ado Ekiti,894
+Umuahia,Ado Ekiti,510
+Uyo,Ado Ekiti,605
+Yenagoa,Ado Ekiti,438
+Yola,Ado Ekiti,1236
+Asaba,Akure,310
+Awka,Akure,342
+Bauchi,Akure,885
+Benin City,Akure,165
+Birnin Kebbi,Akure,711
+Calabar,Akure,619
+Damaturu,Akure,1147
+Dutse,Akure,1070
+Enugu,Akure,422
+Gombe,Akure,1255
+Gusau,Akure,1057
+Ibadan,Akure,204
+Lagos,Akure,341
+Ilorin,Akure,199
+Jalingo,Akure,880
+Jos,Akure,682
+Kaduna,Akure,749
+Kano,Akure,1048
+Katsina,Akure,1108
+Lafia,Akure,600
+Lokoja,Akure,236
+Maiduguri,Akure,1279
+Makurdi,Akure,580
+Minna,Akure,632
+Osogbo,Akure,118
+Owerri,Akure,413
+Port Harcourt,Akure,524
+Sokoto,Akure,930
+Umuahia,Akure,430
+Uyo,Akure,545
+Yenagoa,Akure,378
+Yola,Akure,1165
+Awka,Asaba,44
+Bauchi,Asaba,624
+Benin City,Asaba,133
+Birnin Kebbi,Asaba,1027
+Calabar,Asaba,297
+Damaturu,Asaba,1135
+Dutse,Asaba,1080
+Enugu,Asaba,109
+Gombe,Asaba,979
+Gusau,Asaba,1005
+Ibadan,Asaba,430
+Lagos,Asaba,467
+Ilorin,Asaba,507
+Jalingo,Asaba,859
+Jos,Asaba,692
+Kaduna,Asaba,745
+Kano,Asaba,1007
+Katsina,Asaba,1098
+Lafia,Asaba,435
+Lokoja,Asaba,362
+Maiduguri,Asaba,1288
+Makurdi,Asaba,353
+Minna,Asaba,673
+Osogbo,Asaba,396
+Owerri,Asaba,97
+Port Harcourt,Asaba,225
+Sokoto,Asaba,1232
+Umuahia,Asaba,166
+Uyo,Asaba,247
+Yenagoa,Asaba,213
+Yola,Asaba,960
+Bauchi,Awka,803
+Benin City,Awka,166
+Birnin Kebbi,Awka,1245
+Calabar,Awka,259
+Damaturu,Awka,1115
+Dutse,Awka,976
+Enugu,Awka,62
+Gombe,Awka,958
+Gusau,Awka,984
+Ibadan,Awka,457
+Lagos,Awka,494
+Ilorin,Awka,528
+Jalingo,Awka,815
+Jos,Awka,671
+Kaduna,Awka,724
+Kano,Awka,988
+Katsina,Awka,1077
+Lafia,Awka,416
+Lokoja,Awka,456
+Maiduguri,Awka,1245
+Makurdi,Awka,332
+Minna,Awka,926
+Osogbo,Awka,425
+Owerri,Awka,141
+Port Harcourt,Awka,255
+Sokoto,Awka,1211
+Umuahia,Awka,126
+Uyo,Awka,207
+Yenagoa,Awka,257
+Yola,Awka,746
+Benin City,Bauchi,850
+Birnin Kebbi,Bauchi,962
+Calabar,Bauchi,1002
+Damaturu,Bauchi,312
+Dutse,Bauchi,313
+Enugu,Bauchi,740
+Gombe,Bauchi,155
+Gusau,Bauchi,670
+Ibadan,Bauchi,1053
+Lagos,Bauchi,1202
+Ilorin,Bauchi,909
+Jalingo,Bauchi,610
+Jos,Bauchi,180
+Kaduna,Bauchi,410
+Kano,Bauchi,301
+Katsina,Bauchi,518
+Lafia,Bauchi,326
+Lokoja,Bauchi,601
+Maiduguri,Bauchi,462
+Makurdi,Bauchi,469
+Minna,Bauchi,590
+Osogbo,Bauchi,908
+Owerri,Bauchi,879
+Port Harcourt,Bauchi,970
+Sokoto,Bauchi,777
+Umuahia,Bauchi,660
+Uyo,Bauchi,943
+Yenagoa,Bauchi,995
+Yola,Bauchi,416
+Birnin Kebbi,Benin City,862
+Calabar,Benin City,490
+Damaturu,Benin City,1274
+Dutse,Benin City,880
+Enugu,Benin City,254
+Gombe,Benin City,1044
+Gusau,Benin City,1046
+Ibadan,Benin City,300
+Lagos,Benin City,322
+Ilorin,Benin City,399
+Jalingo,Benin City,998
+Jos,Benin City,758
+Kaduna,Benin City,785
+Kano,Benin City,1049
+Katsina,Benin City,1252
+Lafia,Benin City,673
+Lokoja,Benin City,287
+Maiduguri,Benin City,1353
+Makurdi,Benin City,506
+Minna,Benin City,608
+Osogbo,Benin City,259
+Owerri,Benin City,240
+Port Harcourt,Benin City,296
+Sokoto,Benin City,1020
+Umuahia,Benin City,279
+Uyo,Benin City,375
+Yenagoa,Benin City,210
+Yola,Benin City,1107
+Calabar,Birnin Kebbi,1318
+Damaturu,Birnin Kebbi,1181
+Dutse,Birnin Kebbi,660
+Enugu,Birnin Kebbi,1120
+Gombe,Birnin Kebbi,1117
+Gusau,Birnin Kebbi,322
+Ibadan,Birnin Kebbi,679
+Lagos,Birnin Kebbi,826
+Ilorin,Birnin Kebbi,520
+Jalingo,Birnin Kebbi,1266
+Jos,Birnin Kebbi,830
+Kaduna,Birnin Kebbi,550
+Kano,Birnin Kebbi,651
+Katsina,Birnin Kebbi,596
+Lafia,Birnin Kebbi,753
+Lokoja,Birnin Kebbi,832
+Maiduguri,Birnin Kebbi,1404
+Makurdi,Birnin Kebbi,898
+Minna,Birnin Kebbi,456
+Osogbo,Birnin Kebbi,635
+Owerri,Birnin Kebbi,1124
+Port Harcourt,Birnin Kebbi,1282
+Sokoto,Birnin Kebbi,168
+Umuahia,Birnin Kebbi,1272
+Uyo,Birnin Kebbi,1353
+Yenagoa,Birnin Kebbi,1092
+Yola,Birnin Kebbi,1408
+Damaturu,Calabar,988
+Dutse,Calabar,1050
+Enugu,Calabar,276
+Gombe,Calabar,1152
+Gusau,Calabar,1309
+Ibadan,Calabar,518
+Lagos,Calabar,772
+Ilorin,Calabar,849
+Jalingo,Calabar,624
+Jos,Calabar,370
+Kaduna,Calabar,1034
+Kano,Calabar,1296
+Katsina,Calabar,1464
+Lafia,Calabar,514
+Lokoja,Calabar,579
+Maiduguri,Calabar,1465
+Makurdi,Calabar,532
+Minna,Calabar,860
+Osogbo,Calabar,695
+Owerri,Calabar,200
+Port Harcourt,Calabar,196
+Sokoto,Calabar,1535
+Umuahia,Calabar,151
+Uyo,Calabar,67
+Yenagoa,Calabar,300
+Yola,Calabar,1132
+Dutse,Damaturu,288
+Enugu,Damaturu,1099
+Gombe,Damaturu,256
+Gusau,Damaturu,710
+Ibadan,Damaturu,1274
+Lagos,Damaturu,1421
+Ilorin,Damaturu,1292
+Jalingo,Damaturu,364
+Jos,Damaturu,444
+Kaduna,Damaturu,724
+Kano,Damaturu,430
+Katsina,Damaturu,603
+Lafia,Damaturu,540
+Lokoja,Damaturu,895
+Maiduguri,Damaturu,130
+Makurdi,Damaturu,783
+Minna,Damaturu,874
+Osogbo,Damaturu,1407
+Owerri,Damaturu,1273
+Port Harcourt,Damaturu,1172
+Sokoto,Damaturu,1013
+Umuahia,Damaturu,1251
+Uyo,Damaturu,1038
+Yenagoa,Damaturu,1523
+Yola,Damaturu,322
+Enugu,Dutse,910
+Gombe,Dutse,895
+Gusau,Dutse,416
+Ibadan,Dutse,963
+Lagos,Dutse,1110
+Ilorin,Dutse,846
+Jalingo,Dutse,542
+Jos,Dutse,428
+Kaduna,Dutse,338
+Kano,Dutse,136
+Katsina,Dutse,296
+Lafia,Dutse,634
+Lokoja,Dutse,650
+Maiduguri,Dutse,418
+Makurdi,Dutse,708
+Minna,Dutse,558
+Osogbo,Dutse,958
+Owerri,Dutse,1076
+Port Harcourt,Dutse,1150
+Sokoto,Dutse,520
+Umuahia,Dutse,1030
+Uyo,Dutse,1150
+Yenagoa,Dutse,1192
+Yola,Dutse,558
+Gombe,Enugu,890
+Gusau,Enugu,1046
+Ibadan,Enugu,558
+Lagos,Enugu,376
+Ilorin,Enugu,653
+Jalingo,Enugu,735
+Jos,Enugu,608
+Kaduna,Enugu,772
+Kano,Enugu,1083
+Katsina,Enugu,1202
+Lafia,Enugu,705
+Lokoja,Enugu,392
+Maiduguri,Enugu,1201
+Makurdi,Enugu,270
+Minna,Enugu,598
+Osogbo,Enugu,462
+Owerri,Enugu,145
+Port Harcourt,Enugu,229
+Sokoto,Enugu,1272
+Umuahia,Enugu,118
+Uyo,Enugu,189
+Yenagoa,Enugu,265
+Yola,Enugu,870
+Gusau,Gombe,718
+Ibadan,Gombe,1223
+Lagos,Gombe,1358
+Ilorin,Gombe,1064
+Jalingo,Gombe,279
+Jos,Gombe,286
+Kaduna,Gombe,566
+Kano,Gombe,457
+Katsina,Gombe,675
+Lafia,Gombe,482
+Lokoja,Gombe,756
+Maiduguri,Gombe,400
+Makurdi,Gombe,623
+Minna,Gombe,745
+Osogbo,Gombe,1383
+Owerri,Gombe,1030
+Port Harcourt,Gombe,1122
+Sokoto,Gombe,931
+Umuahia,Gombe,1010
+Uyo,Gombe,1094
+Yenagoa,Gombe,1146
+Yola,Gombe,262
+Ibadan,Gusau,1017
+Lagos,Gusau,1150
+Ilorin,Gusau,857
+Jalingo,Gusau,1062
+Jos,Gusau,330
+Kaduna,Gusau,260
+Kano,Gusau,260
+Katsina,Gusau,463
+Lafia,Gusau,650
+Lokoja,Gusau,692
+Maiduguri,Gusau,914
+Makurdi,Gusau,774
+Minna,Gusau,558
+Osogbo,Gusau,972
+Owerri,Gusau,1180
+Port Harcourt,Gusau,1280
+Sokoto,Gusau,274
+Umuahia,Gusau,1150
+Uyo,Gusau,1240
+Yenagoa,Gusau,1270
+Yola,Gusau,971
+Lagos,Ibadan,132
+Ilorin,Ibadan,157
+Jalingo,Ibadan,1117
+Jos,Ibadan,928
+Kaduna,Ibadan,756
+Kano,Ibadan,1005
+Katsina,Ibadan,1065
+Lafia,Ibadan,825
+Lokoja,Ibadan,584
+Maiduguri,Ibadan,1532
+Makurdi,Ibadan,920
+Minna,Ibadan,592
+Osogbo,Ibadan,90
+Owerri,Ibadan,450
+Port Harcourt,Ibadan,656
+Sokoto,Ibadan,890
+Umuahia,Ibadan,580
+Uyo,Ibadan,676
+Yenagoa,Ibadan,510
+Yola,Ibadan,1543
+Ilorin,Lagos,291
+Jalingo,Lagos,1264
+Jos,Lagos,1168
+Kaduna,Lagos,889
+Kano,Lagos,1139
+Katsina,Lagos,1211
+Lafia,Lagos,941
+Lokoja,Lagos,531
+Maiduguri,Lagos,1665
+Makurdi,Lagos,820
+Minna,Lagos,725
+Osogbo,Lagos,237
+Owerri,Lagos,564
+Port Harcourt,Lagos,620
+Sokoto,Lagos,1023
+Umuahia,Lagos,600
+Uyo,Lagos,689
+Yenagoa,Lagos,532
+Yola,Lagos,1612
+Jalingo,Ilorin,958
+Jos,Ilorin,776
+Kaduna,Ilorin,597
+Kano,Ilorin,846
+Katsina,Ilorin,907
+Lafia,Ilorin,660
+Lokoja,Ilorin,319
+Maiduguri,Ilorin,1372
+Makurdi,Ilorin,863
+Minna,Ilorin,432
+Osogbo,Ilorin,115
+Owerri,Ilorin,667
+Port Harcourt,Ilorin,843
+Sokoto,Ilorin,730
+Umuahia,Ilorin,770
+Uyo,Ilorin,865
+Yenagoa,Ilorin,609
+Yola,Ilorin,319
+Jos,Jalingo,542
+Kaduna,Jalingo,822
+Kano,Jalingo,731
+Katsina,Jalingo,1084
+Lafia,Jalingo,450
+Lokoja,Jalingo,648
+Maiduguri,Jalingo,416
+Makurdi,Jalingo,368
+Minna,Jalingo,808
+Osogbo,Jalingo,1073
+Owerri,Jalingo,808
+Port Harcourt,Jalingo,808
+Sokoto,Jalingo,1188
+Umuahia,Jalingo,756
+Uyo,Jalingo,674
+Yenagoa,Jalingo,924
+Yola,Jalingo,142
+Kaduna,Jos,278
+Kano,Jos,418
+Katsina,Jos,592
+Lafia,Jos,196
+Lokoja,Jos,469
+Maiduguri,Jos,592
+Makurdi,Jos,336
+Minna,Jos,457
+Osogbo,Jos,776
+Owerri,Jos,745
+Port Harcourt,Jos,840
+Sokoto,Jos,644
+Umuahia,Jos,727
+Uyo,Jos,811
+Yenagoa,Jos,861
+Yola,Jos,540
+Kano,Kaduna,220
+Katsina,Kaduna,428
+Lafia,Kaduna,474
+Lokoja,Kaduna,502
+Maiduguri,Kaduna,874
+Makurdi,Kaduna,500
+Minna,Kaduna,297
+Osogbo,Kaduna,715
+Owerri,Kaduna,910
+Port Harcourt,Kaduna,1003
+Sokoto,Kaduna,480
+Umuahia,Kaduna,890
+Uyo,Kaduna,975
+Yenagoa,Kaduna,1026
+Yola,Kaduna,820
+Katsina,Kano,172
+Lafia,Kano,618
+Lokoja,Kano,766
+Maiduguri,Kano,574
+Makurdi,Kano,756
+Minna,Kano,503
+Osogbo,Kano,915
+Owerri,Kano,1173
+Port Harcourt,Kano,1270
+Sokoto,Kano,645
+Umuahia,Kano,1153
+Uyo,Kano,1237
+Yenagoa,Kano,1289
+Yola,Kano,714
+Lafia,Katsina,788
+Lokoja,Katsina,918
+Maiduguri,Katsina,794
+Makurdi,Katsina,850
+Minna,Katsina,606
+Osogbo,Katsina,1008
+Owerri,Katsina,1142
+Port Harcourt,Katsina,1438
+Sokoto,Katsina,380
+Umuahia,Katsina,1322
+Uyo,Katsina,1406
+Yenagoa,Katsina,1258
+Yola,Katsina,875
+Lokoja,Lafia,384
+Maiduguri,Lafia,728
+Makurdi,Lafia,82
+Minna,Lafia,297
+Osogbo,Lafia,387
+Owerri,Lafia,490
+Port Harcourt,Lafia,587
+Sokoto,Lafia,840
+Umuahia,Lafia,456
+Uyo,Lafia,558
+Yenagoa,Lafia,606
+Yola,Lafia,736
+Maiduguri,Lokoja,1063
+Makurdi,Lokoja,342
+Minna,Lokoja,309
+Osogbo,Lokoja,305
+Owerri,Lokoja,424
+Port Harcourt,Lokoja,521
+Sokoto,Lokoja,985
+Umuahia,Lokoja,405
+Uyo,Lokoja,490
+Yenagoa,Lokoja,540
+Yola,Lokoja,945
+Makurdi,Maiduguri,930
+Minna,Maiduguri,1052
+Osogbo,Maiduguri,1372
+Owerri,Maiduguri,1142
+Port Harcourt,Maiduguri,1419
+Sokoto,Maiduguri,1123
+Umuahia,Maiduguri,1323
+Uyo,Maiduguri,1406
+Yenagoa,Maiduguri,1258
+Yola,Maiduguri,436
+Minna,Makurdi,440
+Osogbo,Makurdi,618
+Owerri,Makurdi,408
+Port Harcourt,Makurdi,505
+Sokoto,Makurdi,1116
+Umuahia,Makurdi,374
+Uyo,Makurdi,473
+Yenagoa,Makurdi,524
+Yola,Makurdi,674
+Osogbo,Minna,552
+Owerri,Minna,735
+Port Harcourt,Minna,830
+Sokoto,Minna,674
+Umuahia,Minna,716
+Uyo,Minna,800
+Yenagoa,Minna,851
+Yola,Minna,1124
+Owerri,Osogbo,495
+Port Harcourt,Osogbo,623
+Sokoto,Osogbo,348
+Umuahia,Osogbo,564
+Uyo,Osogbo,645
+Yenagoa,Osogbo,469
+Yola,Osogbo,225
+Port Harcourt,Owerri,112
+Sokoto,Owerri,1411
+Umuahia,Owerri,165
+Uyo,Owerri,250
+Yenagoa,Owerri,116
+Yola,Owerri,1008
+Sokoto,Port Harcourt,1263
+Umuahia,Port Harcourt,114
+Uyo,Port Harcourt,120
+Yenagoa,Port Harcourt,104
+Yola,Port Harcourt,1105
+Umuahia,Sokoto,1376
+Uyo,Sokoto,1475
+Yenagoa,Sokoto,1527
+Yola,Sokoto,1187
+Uyo,Umuahia,88
+Yenagoa,Umuahia,281
+Yola,Umuahia,917
+Yenagoa,Uyo,224
+Yola,Uyo,1073
+Yola,Yenagoa,1124

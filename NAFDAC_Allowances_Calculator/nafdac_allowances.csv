@@ -1,0 +1,81 @@
+rank,type,rate
+Chief Executive/Board Members,dta,"70,000.00"
+Director,dta,"37,500.00"
+CONRAISS 15(DD),dta,"37,500.00"
+CONRAISS 14(AD),dta,"25,000.00"
+CONRAISS 13(Chief),dta,"25,000.00"
+CONRAISS 12(Asst Chief),dta,"20,000.00"
+CONRAISS 11(Principal),dta,"20,000.00"
+CONRAISS 9(Senior),dta,"17,500.00"
+CONRAISS 8(Officer I),dta,"17,500.00"
+CONRAISS 7(Officer II),dta,"17,500.00"
+CONRAISS 6,dta,"17,500.00"
+CONRAISS 5,dta,"15,000.00"
+CONRAISS 4,dta,"15,000.00"
+CONRAISS 3,dta,"10,000.00"
+CONRAISS 2,dta,"10,000.00"
+CONRAISS 1,dta,"10,000.00"
+Chief Executive/Board Members,km_rate,150
+Director,km_rate,75
+CONRAISS 15(DD),km_rate,75
+CONRAISS 14(AD),km_rate,75
+CONRAISS 13(Chief),km_rate,55
+CONRAISS 12(Asst Chief),km_rate,55
+CONRAISS 11(Principal),km_rate,55
+CONRAISS 9(Senior),km_rate,55
+CONRAISS 8(Officer I),km_rate,55
+CONRAISS 7(Officer II),km_rate,55
+CONRAISS 6,km_rate,55
+CONRAISS 5,km_rate,35
+CONRAISS 4,km_rate,35
+CONRAISS 3,km_rate,35
+CONRAISS 2,km_rate,35
+CONRAISS 1,km_rate,35
+Chief Executive/Board Members,estacode_rate,600
+Director,estacode_rate,425
+CONRAISS 15(DD),estacode_rate,425
+CONRAISS 14(AD),estacode_rate,425
+CONRAISS 13(Chief),estacode_rate,381
+CONRAISS 12(Asst Chief),estacode_rate,381
+CONRAISS 11(Principal),estacode_rate,381
+CONRAISS 9(Senior),estacode_rate,381
+CONRAISS 8(Officer I),estacode_rate,381
+CONRAISS 7(Officer II),estacode_rate,381
+CONRAISS 6,estacode_rate,381
+CONRAISS 5,estacode_rate,206
+CONRAISS 4,estacode_rate,206
+CONRAISS 3,estacode_rate,206
+CONRAISS 2,estacode_rate,206
+CONRAISS 1,estacode_rate,206
+Chief Executive/Board Members,warmclothing,720
+Director,warmclothing,720
+CONRAISS 15(DD),warmclothing,720
+CONRAISS 14(AD),warmclothing,720
+CONRAISS 13(Chief),warmclothing,720
+CONRAISS 12(Asst Chief),warmclothing,720
+CONRAISS 11(Principal),warmclothing,720
+CONRAISS 9(Senior),warmclothing,720
+CONRAISS 8(Officer I),warmclothing,720
+CONRAISS 7(Officer II),warmclothing,720
+CONRAISS 6,warmclothing,720
+CONRAISS 5,warmclothing,720
+CONRAISS 4,warmclothing,720
+CONRAISS 3,warmclothing,720
+CONRAISS 2,warmclothing,720
+CONRAISS 1,warmclothing,720
+Chief Executive/Board Members,hotel_rate,20000
+Director,hotel_rate,13000
+CONRAISS 15(DD),hotel_rate,13000
+CONRAISS 14(AD),hotel_rate,13000
+CONRAISS 13(Chief),hotel_rate,9000
+CONRAISS 12(Asst Chief),hotel_rate,9000
+CONRAISS 11(Principal),hotel_rate,9000
+CONRAISS 9(Senior),hotel_rate,9000
+CONRAISS 8(Officer I),hotel_rate,9000
+CONRAISS 7(Officer II),hotel_rate,9000
+CONRAISS 6,hotel_rate,9000
+CONRAISS 5,hotel_rate,3000
+CONRAISS 4,hotel_rate,3000
+CONRAISS 3,hotel_rate,3000
+CONRAISS 2,hotel_rate,3000
+CONRAISS 1,hotel_rate,3000
