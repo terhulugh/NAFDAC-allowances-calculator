@@ -746,6 +746,42 @@ server <- function(input, output, session) {
         result_estacode_supp <- reactiveVal(NULL)
         result_warm_clothing <- reactiveVal(NULL)
         
+        # Navigation handlers
+        observeEvent(input$nav_air, {
+                updateTabItems(session, "tabs", "air_travel")
+        })
+        
+        observeEvent(input$nav_road, {
+                updateTabItems(session, "tabs", "road_travel")
+        })
+        
+        observeEvent(input$nav_first28, {
+                updateTabItems(session, "tabs", "first_28_days")
+        })
+        
+        observeEvent(input$nav_estacode, {
+                updateTabItems(session, "tabs", "estacode")
+        })
+        
+        observeEvent(input$nav_estacode_supp, {
+                updateTabItems(session, "tabs", "estacode_supp")
+        })
+        
+        observeEvent(input$nav_warm_clothing, {
+                updateTabItems(session, "tabs", "warm_clothing")
+        })
+        
+        observeEvent(input$get_started, {
+                updateTabItems(session, "tabs", "air_travel")
+        })
+        
+
+        
+        # Sample image suggestions (place these in your www/ folder):
+        # - nafdac_banner.jpg (1200x400px recommended)
+        # - nafdac_logo.png (transparent PNG)
+        # - air_travel.png, road_travel.png, hotel.png, international.png
+        
         observeEvent(input$calculate_air, {
                 name <- input$name_air
                 rank <- input$rank_air
